@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shooting Program</title>
+    <link rel="stylesheet" type="text/css" href="CSS - Stylesheet.css"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap" rel="stylesheet">
+</head>
+<body class="body2">
+<div id="commonFeatures">
+
+    <!-- Title of the program in web browser -->
+    <link rel="stylesheet" type="css/text" href="CSS - Stylesheet.css">
+        <div class="container-fluid" id="header">      
+        <img src="file:///Users/sammartin/Downloads/target.svg" style="width:120px;height:120px; padding-bottom:16px; padding-top: 24px; ">
+        <br>
+        <h1> Rifle Shooting Scoring System </h1>
+        </div>
+</div>
+<body onload="scoreboardSort()"></body>
+<div id="loginPage">
+        <!-- L O G I N   P A G E  -->
+
+<!--  Header of page  -->
+<div>
+<div class="container-fluid">
+
+        <div class="rightElements">
+                <svg width="400" height="500">
+                    
+                        
+                    <text x="15" y="25" fill="black" id="scoreboard">Scoreboard
+                        <tspan x="15" y="55" id="place1" style="display: none"> Test Line1</tspan>
+                        <tspan x="15" y="63" class="divider"> ______________________________________________________</tspan>
+                        <tspan x="15" y="85" id="place2" style="display: none"> Test Line2</tspan>
+                        <tspan x="15" y="93" class="divider"> ______________________________________________________</tspan>
+                        <tspan x="15" y="115" id="place3" style="display: none"> Test Line3</tspan>
+                        <tspan x="15" y="123" class="divider"> ______________________________________________________</tspan>
+                        <tspan x="15" y="145" id="place4" style="display: none"> Test Line4</tspan>
+                        <tspan x="15" y="153" class="divider"> ______________________________________________________</tspan>
+                        <tspan x="15" y="175" id="place5" style="display: none"> Test Line5</tspan>
+                        <tspan x="15" y="183" class="divider"> ______________________________________________________</tspan>
+                        <tspan x="15" y="205" id="place6" style="display: none"> Test Line6</tspan>
+                        <tspan x="15" y="213" class="divider"> ______________________________________________________</tspan>
+                        <tspan x="15" y="235" id="place7" style="display: none"> Test Line7</tspan>
+                        <tspan x="15" y="243" class="divider"> ______________________________________________________</tspan>
+                        <tspan x="15" y="265" id="place8" style="display: none"> Test Line8</tspan>
+                        <tspan x="15" y="273" class="divider"> ______________________________________________________</tspan>
+                        <tspan x="15" y="295" id="place9" style="display: none"> Test Line9</tspan>
+                        <tspan x="15" y="303" class="divider"> ______________________________________________________</tspan>
+                        <tspan x="15" y="325" id="place10" style="display: none"> Test Line10</tspan>
+                        
+                    </text>
+                </svg>
+            </div>
+
+        <h3 class="text-muted"> Login Page </h3>
+</div>
+</div> 
+
+<br>
+<br>
+
+
+    <!-- Each button (both login and create0 -->
+   
+    <div class="container-fluid">
+    <div id="choiceElements">
+        <!-- Create button -->
+        <button id="btnChoiceCreate" type="submit" class="loginButton" onclick="showCreate()">Create new user</button>
+        <br>
+        <!-- Login button -->
+        <button id="btnChoiceLogin" type="submit" class="loginButton" onclick="showLogin(), selectUser()">Login to an existing user</button>
+        <br>
+        <!-- Search button -->
+        <button id="btnChoiceSearch" type="submit" class="loginButton" onclick="showSearch()">Provide the name of an existing user</button>
+    </div>
+<br>
+    <div id="userCreateHTML" style="display: none">
+        <!-- Create choice elements -->
+        <input id="personName"> Enter your name here 
+         <br>
+         <br>
+         <button id="btnCreateUser" type="submit" class="loginButton" onclick="hideFunc(), createUser()">Submit</button>
+    </div>
+
+    <div id="userExistHTML" style="display: none">
+        <!-- Login choice elements -->
+        <select id='optionBoxes'>
+            <option id = "selectUser" value="">Select your user</option>
+        </select>
+        <br>
+        <br>
+        <button id="btnLoginUser" type="submit" class="loginButton" onclick="hideFunc(), selectUserName()">Submit</button>
+    </div>
+
+    <div id="userSearchHTML" style="display: none">
+
+        <input type="text" id="inputNameSearch"> Enter your name</input>
+        <br>
+        <br>
+        <button id="btnSearchUser" type="submit" class="loginButton" onclick="searchUser()">Submit</button>
+    </div>
+
+    
+</div>
+
+<script type="text/javascript" src="Project JS.js"></script>
+
+</div>
+</div>
+<div id="targetPage" style="display: none">
+
+        <!-- T A R G E T   P A G E -->
+<!--    Header of page (Target version)  -->
+
+    <div class="rightElements">
+        <!-- Scoring elements & other information are below. These elements are on right side of page-->
+        <svg width="400" height="100" >
+            <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;opacity:0.5"/>
+            
+            <text x="15" y="25" fill="black" id="targetUsernameOutput">Shooter Name:
+                <tspan x="15" y="45" id="shooterName" style="display: none"> Test Line1</tspan>
+            </text>
+        </svg>
+        <br>
+        <svg width="400" height="100" >
+            <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;opacity:0.5" />
+            
+            <text x="15" y="25" fill="black" id="targetInfoOutput">Shoot Information:
+                <tspan x="15" y="45" id="score" style="display: none"> Test Line1</tspan>
+                <tspan x="15" y="65" id="average" style="display: none"> Test Line1</tspan>
+            </text>
+        </svg>
+        <br>
+        <svg width="400" height="100" >
+            <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;opacity:0.5" />
+            
+            <text x="15" y="25" fill="black" id="timerOutputBox">Timer:
+                <tspan x="15" y="45" id="timerOutput" style="display: block"> Shoot has not begun.</tspan>
+            </text>
+        </svg>
+        <br>
+        <svg width="400" height="100" >
+            <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;opacity:0.5" />
+            
+            <text x="15" y="25" fill="black" id="targetCountOutput">Shot Count:
+                <tspan x="15" y="45" id="shotCountOutput" style="display: none"> Invisible Text</tspan>
+            </text>
+        </svg>
+    </div>
+
+    <div class="container-fluid">
+        <h3 class="text-muted"> Target Page </h3>
+    </div>
+
+    
+
+
+
+
+
+
+
+<div>
+     <!-- Below are all of the target buttons used for the shooting target -->
+    <button type="button" class="button0Circle" id="targetTen" onclick="scoreTen(scoreOutput)">  </button>
+    <button type="button" class="button1Circle" id="targetNine" onclick="scoreNine(scoreOutput)"> ok </button>
+    <button type="button" class="button2Circle" id="targetEight" onclick="scoreEight(scoreOutput)"> ok </button>
+    <button type="button" class="button3Circle" id="targetSeven" onclick="scoreSeven(scoreOutput)"> </button>
+    <button type="button" class="button4Circle" id="targetSix" onclick="scoreSix(scoreOutput)"> ok </button>
+    <button type="button" class="button5Circle" id="targetFive" onclick="scoreFive(scoreOutput)"> ok </button>  
+</div> 
+
+<div>
+<!-- Seperates the Finish Shoot button to below the target-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button id="btnFinishShoot" type="submit" class="loginButton" onclick="finishShoot()">Finish Shoot</button>
+</div>
+</div>
+
