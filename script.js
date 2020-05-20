@@ -203,19 +203,21 @@ if (totalScore == 100){
 
 /* This function hides the login page, and shows the target page
  Temporary variables are used to achieve this */
-function hideFunc() {
-var login = document.getElementById("loginPage");
-var target = document.getElementById("targetPage");
+ /* Uses parameters to determine divs to hide and show */
+function hideFunc(nextPage, prevPage) {
+  var next = document.getElementById(nextPage);
+  var prev = document.getElementById(prevPage);
+  console.log(next)
+  console.log(prev)
 
+  if (prev.style.display === "none") {
+    prev.style.display = "block";
+  } else {
+      prev.style.display = "none";
+      next.style.display = "block"; 
+    }
+}
 
-if (login.style.display === "none") {
-  login.style.display = "block";
-} else {
-  login.style.display = "none";
-  target.style.display = "block";
-  
-}
-}
 
 // This function shows the 'Create new user' option at the login page
 function showCreate() {

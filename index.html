@@ -20,8 +20,11 @@
         <h1> Skiing Competition System </h1>
         </div>
 </div>
-<body onload="scoreboardSort()"></body>
-<div id="loginPage" style="display:none">
+ <!-- <body onload="scoreboardSort()"></body> -->
+
+ <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<div id="loginPage" style="display:block">
         <!-- L O G I N   P A G E  -->
 
 <!--  Header of page  -->
@@ -50,7 +53,7 @@
           <label for="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required>
             
-          <button type="submit">Login</button>
+          <button type="submit" onclick="hideFunc('mainMenu','loginPage')">Login</button>
           
         </div>
     
@@ -91,7 +94,7 @@
           <label for="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required>
             
-          <button type="submit">Create Acount</button>
+          <button type="submit" onclick="hideFunc('mainMenu','loginPage')">Create Acount</button>
         </div>
     
         <div class="container" style="background-color:#f1f1f1">
@@ -117,7 +120,7 @@
     
 </div>
 </div>
-<div id="mainMenu" style="display: block;">
+<div id="mainMenu" style="display: none;">
 <!-- MAIN MENU -->
 <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
     <h3 class="text-muted"> Main Menu </h3>
@@ -125,37 +128,163 @@
 
 <!-- Each button (both login and create) -->
    
-<div class="container-fluid">
-    <div id="choiceElements">
-        <!-- Create button -->
-        <button id="btnChoiceCreate" type="submit" class="loginButton" onclick="showCreate()">Create new user</button>
-        <br>
-        <!-- Login button -->
-        <button id="btnChoiceLogin" type="submit" class="loginButton" onclick="showLogin(), selectUser()">Login to an existing user</button>
-        <br>
-        <!-- Search button -->
-        <button id="btnChoiceSearch" type="submit" class="loginButton" onclick="showSearch()">Provide the name of an existing user</button>
+  <div class="container-fluid">
+     <div id="choiceElements">
+          <!-- Create button -->
+           <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','mainMenu')">Scoring Interface</button>
+           <br>
+           <br>
+         <!-- Login button -->
+          <button id="btnViewingRedirect" type="submit" class="loginButton" onclick="hideFunc('viewingMenu','mainMenu')">Viewing Interface</button>
+          <br>
+          <br>
+         <!-- Search button -->
+          <button id="btnTrainingRedirect" type="submit" class="loginButton" onclick="hideFunc('trainingMenu','mainMenu')">Training Interface</button>
+      </div> 
+  </div>
+  <div id="mainBack" class="backButtonDiv">
+    <button id="btnMainBack" type="submit" class="backButton" onclick="hideFunc('loginPage','mainMenu')">Log Out</button>
+  </div>
+</div>
+
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<div id="trainingMenu" style="display: none;">
+  <!-- TRAINING MENU -->
+  <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+    <h3 class="text-muted"> Training Menu </h3>
+    <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
+    <h6 class="text-muted"> Here, an athlete can view their training results or a coach can score an athlete for training/review. </h4>
+  </div>
+
+  <div class="container-fluid">
+    <!-- Create button -->
+      <button id="btnAthleteResultRedirect" type="submit" class="loginButton" onclick="hideFunc('athleteMenu','trainingMenu')">Athlete Results</button>
+      <br>
+      <br>
+    <!-- Login button -->
+      <button id="btnCoachScoreRedirect" type="submit" class="loginButton" onclick="hideFunc('coachScoreMenu','trainingMenu')">Coach Scoring</button>
+  </div>
+  <div id="trainingBack" class="backButtonDiv">
+    <button id="btnTrainingBack" type="submit" class="backButton" onclick="hideFunc('mainMenu','trainingMenu')">Back</button>
+  </div>
+</div>
+</div>
+
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+  <div id="athleteMenu" style="display: none;">
+    <!-- VIEWING MENU -->
+    <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+      <h3 class="text-muted"> Athlete Menu </h3>
+     <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
+     <h6 class="text-muted"> CEpic </h4>
+   </div>
+
+    <div id="viewingBack" class="backButtonDiv">
+      <button id="btnViewingBack" type="submit" class="backButton" onclick="hideFunc('trainingMenu','athleteMenu')">Back</button>
     </div>
+  </div>
+
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+  <div id="coachScoreMenu" style="display: none;">
+   <!-- VIEWING MENU -->
+    <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+      <h3 class="text-muted"> Coach Scoring Menu </h3>
+      <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
+    <h6 class="text-muted"> me when </h4>
+   </div>
+
+    <div id="viewingBack" class="backButtonDiv">
+     <button id="btnViewingBack" type="submit" class="backButton" onclick="hideFunc('trainingMenu','coachScoreMenu')">Back</button>
+   </div>
+  </div>
 
 
-    
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<div id="judgeMenu" style="display: none;">
+  <!-- JUDGING MENU -->
+  <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+    <h3 class="text-muted"> Judging Menu </h3>
+    <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
+    <h6 class="text-muted"> lorem ipsum ok buddy okokokokookokkokokokokoko k k ok ko kok ok okok ok :)))) </h4>
+  </div>
+
+  <div class="container-fluid">
+    <!-- Create button -->
+      <button id="btnAthleteResultRedirect" type="submit" class="loginButton" onclick="hideFunc('compScoreMenu','judgeMenu')">Score Competition</button>
+      <br>
+      <br>
+    <!-- Login button -->
+      <button id="btnCoachScoreRedirect" type="submit" class="loginButton" onclick="hideFunc('compCreateMenu','judgeMenu')">Create Competition</button>
+  </div>
+  <div id="judgeBack" class="backButtonDiv">
+    <button id="btnJudgeBack" type="submit" class="backButton" onclick="hideFunc('mainMenu','judgeMenu')">Back</button>
+  </div>
+</div>
+
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+  <div id="compScoreMenu" style="display: none;">
+    <!-- VIEWING MENU -->
+    <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+     <h3 class="text-muted"> Score Competition </h3>
+      <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
+     <h6 class="text-muted"> yeye </h4>
+  </div>
+
+    <div id="viewingBack" class="backButtonDiv">
+      <button id="btnViewingBack" type="submit" class="backButton" onclick="hideFunc('judgeMenu','compScoreMenu')">Back</button>
+    </div>
+  </div>
+
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+  <div id="compCreateMenu" style="display: none;">
+    <!-- VIEWING MENU -->
+    <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+      <h3 class="text-muted"> Create Competition </h3>
+    <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
+     <h6 class="text-muted"> cereate cmompetmetio m </h4>
+  </div>
+
+   <div id="viewingBack" class="backButtonDiv">
+      <button id="btnViewingBack" type="submit" class="backButton" onclick="hideFunc('judgeMenu','compCreateMenu')">Back</button>
+   </div>
+  </div>
+
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+<div id="viewingMenu" style="display: none;">
+  <!-- VIEWING MENU -->
+  <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+    <h3 class="text-muted"> Viewing Menu </h3>
+    <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
+    <h6 class="text-muted"> Competitions </h4>
+  </div>
+
+  <div id="viewingBack" class="backButtonDiv">
+    <button id="btnViewingBack" type="submit" class="backButton" onclick="hideFunc('mainMenu','viewingMenu')">Back</button>
+  </div>
+</div>
+
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+
+
+</div>
 </div>
 
 
 
-</div>
 
 
 
-</div>
-</div>
-
-
-
-
-
-
-<script type="text/javascript" src="Project JS.js"></script>
+<script type="text/javascript" src="script.js"></script>
 
 
 
