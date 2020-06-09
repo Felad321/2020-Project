@@ -43,7 +43,7 @@
         
     <div id="loginForm" class="modal">
       
-      <form class="modal-content animate" action="/action_page.php" method="post">
+      <form class="modal-content animate" method="post">
         
     
         <div class="container">
@@ -62,7 +62,7 @@
         </div>
       </form>
     </div>
-    
+    <!--
     <script>
     // Get the modal
     var modal = document.getElementById('loginForm');
@@ -74,7 +74,7 @@
         }
     }
     </script>
-    
+  -->
     
 </div>
 
@@ -84,17 +84,17 @@
         
     <div id="createForm" class="modal">
       
-      <form class="modal-content animate" action="/action_page.php" method="post">
+      <form class="modal-content animate">
         
     
         <div class="container">
           <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <input type="text" placeholder="Enter Username" id="unameInput" required>
     
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" id="pswInput" required>
             
-          <button type="submit" onclick="hideFunc('mainMenu','loginPage')">Create Acount</button>
+          <button onclick="hideFunc('mainMenu','loginPage');createAccount()">Create Account</button>
         </div>
     
         <div class="container" style="background-color:#f1f1f1">
@@ -102,7 +102,7 @@
         </div>
       </form>
     </div>
-    
+    <!--
     <script>
     // Get the modal
     var modal = document.getElementById('createForm');
@@ -114,7 +114,7 @@
         }
     }
     </script>
-    
+  -->
     </body>
     </html>
     
