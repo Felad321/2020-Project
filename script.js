@@ -28,8 +28,9 @@ var userArray = []
       prev.style.display = "none";
       next.style.display = "block"; 
     }
+
 }
-/*
+
 // Create a new list item when clicking on the "Add" button
 function newElement() {
   var li = document.createElement("li");
@@ -56,16 +57,20 @@ function newElement() {
     }
   }
 }
-*/
-/*
+
+
 function createAccount(){
+
   userAccount = {
     username: document.getElementById("unameInput").value,
     password: document.getElementById("pswInput").value
   }
-  console.log(userAccount)
-  userArray.push(userAccount)
-  console.log(userArray)
+
+var userArray = JSON.parse(localStorage.getItem("userArray"))
+userArray.push(userAccount)
+localStorage.setItem("userArray",JSON.stringify(userArray))
+console.log(JSON.parse(localStorage.getItem("userArray")))
+
 
 }
-*/
+
