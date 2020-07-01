@@ -1,7 +1,7 @@
-
+//Global Variables are below
 var userAccount = {}
 var userArray = []
-
+var flagDeductsOpened = false
 
 // |\|\|\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
 //\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
@@ -57,7 +57,7 @@ function newElement() {
     }
   }
 }
-//NEED TO SORT ARRAY BEFORE SEARCH
+
 // This function creates user data that will be stored in local storage.
 function createAccount(){
   usernameInsertionSort()
@@ -234,3 +234,46 @@ function PSWInsertionSort() {
       console.log(JSON.parse(localStorage.getItem("userArray")))
   return;
 }
+
+// Create a new list item when clicking on the "Add" button
+function displayDeduction() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("deductionOptionBox").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Please enter a valid deduction.");
+  } else {
+    document.getElementById("deductionUL").appendChild(li);
+  }
+  //document.getElementById("deductionOptionBox").value = "";
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+/* This function creates the list of deductions within the deduction box, also checking whether the box
+   has already been opened to prevent duplicated data [ACTUALLY ONLY NEEDED FOR EDITABLE DEDUCTIONS]
+   function setDeductions() {
+    selectbox = document.getElementById("optionBoxes")
+    var deductionsArray = ["test1","test2","test3"] 
+    //var retrievedArraySelect = localStorage.getItem("userArray")
+    //var retrievedArraySelectProper = JSON.parse(retrievedArraySelect)
+    
+    if(flagDeductsOpened === false){
+     for(i=0;i<deductionsArray.length;i++){
+    
+        //select.option.remove[i]
+        var option = document.createElement("option");
+        option.value = i
+        option.text = deductionsArray[i]
+        selectbox.add(option)
+     } } else {
+     }
+    flagSelectUserOpened = true
+  }
+*/
+

@@ -48,10 +48,10 @@
     
         <div class="container">
           <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" id="unameLoginInput" required>
+          <input type="text" placeholder="Enter Username" name="uname" id="unameLoginInput" class="modalInputs" required>
     
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" id="pswLoginInput"required>
+          <input type="password" placeholder="Enter Password" name="psw" id="pswLoginInput" class="modalInputs" required>
             
           <button type="button" onclick="loginAccount()">Login</button>
           
@@ -89,10 +89,10 @@
     
         <div class="container">
           <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" id="unameInput" required>
+          <input type="text" placeholder="Enter Username" id="unameInput" class="modalInputs" required>
     
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" id="pswInput" required>
+          <input type="password" placeholder="Enter Password" id="pswInput" class="modalInputs" required>
             
           <button type="button" onclick="createAccount()">Create Account</button>
         </div>
@@ -328,25 +328,52 @@
    - Air 2 score
    - Total Air Score (A1 + A2)
    - Total Score (TA + TR)
+   <ul id="myUL" style="list-style: none;">
+       <li>God this is me when</li>
+      </ul>
  -->
+ <div class="rightElements">
+  <!-- Scoring elements & other information are below. These elements are on right side of page-->
+  <div style="width:400px;height:100px;border:2.5px solid #000;overflow:auto;">
+    <p>Total Deductions:</p>
+    <ul id="deductionUL" style="list-style: none;">
+     </ul>
+  </div>
+  <br>
+  <svg width="400" height="100" >
+      <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;"/>
+      
+      <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores
+          <tspan x="15" y="45" id="shooterName" style="display: block"> Test Line1</tspan>
+          <tspan x="15" y="45" id="shooterName" style="display: block"> Test Line1</tspan>
+      </text>
+  </svg>
+</div>
 <h3> Run Scores </h3>
 <label> Run Base Score </label> 
-<input type="text" placeholder="Enter Run Base Score Here" id="RBScoreInput">
-
-<h3> Air Scores </h3>
-<label> Air 1 Score </label> 
-<input type="text" placeholder="Enter Air 1 Score Here" id="A1ScoreInput">
-
-<label> Air 2 Score </label> 
-<input type="text" placeholder="Enter Air 2 Score Here" id="A2ScoreInput">
-
+<input type="text" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="coachInputs">
+<br>
+<!-- Login choice elements -->
+  <label> Deductions: </label>
+  <select id='deductionOptionBox'>
+    <!-- FILL IN DEDUCTIONS -->
+  <option id = "selectDeduction1" value="Fall1"> Test1 </option>
+  <option id = "selectDeduction2" value="Cross2"> Test2 </option>
+  <option id = "selectDeduction3" value="3"> Test3 </option>
+  <option id = "selectDeduction4" value="4"> Test4 </option>
+  <option id = "selectDeduction5" value="5"> Test5 </option>
+  </select>
+<br>
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit</button>
+<br>
+  <h3> Air Scores </h3>
+  <label> Air 1 Score </label> 
+  <input type="text" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
+<br>
+  <label> Air 2 Score </label> 
+  <input type="text" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
 </div>
-
-
 </div>
-
-
-
 </div>
 </div>
 
