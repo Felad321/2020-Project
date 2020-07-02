@@ -249,4 +249,5 @@ input[type=text], input[type=password] {
 .deductionSelectButton {
   width: auto;
   border-radius: 8px;
+  height: auto;
 }

@@ -344,8 +344,9 @@
       <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;"/>
       
       <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores
-          <tspan x="15" y="45" id="shooterName" style="display: block"> Test Line1</tspan>
-          <tspan x="15" y="45" id="shooterName" style="display: block"> Test Line1</tspan>
+          <tspan x="15" y="45" id="shooterName" style="display: block"> Total Run Score:</tspan>
+          <tspan x="15" y="65" id="shooterName" style="display: block"> Total Air Score:</tspan>
+          <tspan x="15" y="85" id="shooterName" style="display: block"> Final Score:</tspan>
       </text>
   </svg>
 </div>
@@ -357,14 +358,13 @@
   <label> Deductions: </label>
   <select id='deductionOptionBox'>
     <!-- FILL IN DEDUCTIONS -->
-  <option id = "selectDeduction1" value="Fall1"> Test1 </option>
-  <option id = "selectDeduction2" value="Cross2"> Test2 </option>
+  <option id = "selectDeduction1" value="Fall1"> Fall </option>
+  <option id = "selectDeduction2" value="Cross2"> Cross </option>
   <option id = "selectDeduction3" value="3"> Test3 </option>
   <option id = "selectDeduction4" value="4"> Test4 </option>
   <option id = "selectDeduction5" value="5"> Test5 </option>
   </select>
-<br>
-  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit</button>
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
@@ -372,7 +372,13 @@
 <br>
   <label> Air 2 Score </label> 
   <input type="text" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
+  <br>
+  <button id="submitVideo1" type="submit">Submit Final Scores</button>
+  <div id="coachScoreBack1" class="backButtonDiv">
+    <button id="btnCoachScoreBack1" type="submit" class="backButton" onclick="hideFunc('coachScoreMenu','coachScoreVideo1')">Back</button>
+  </div>
 </div>
+
 </div>
 </div>
 </div>

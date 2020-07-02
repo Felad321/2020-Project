@@ -2,6 +2,7 @@
 var userAccount = {}
 var userArray = []
 var flagDeductsOpened = false
+var totalDeductions = []
 
 // |\|\|\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
 //\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
@@ -235,10 +236,26 @@ function PSWInsertionSort() {
   return;
 }
 
-// Create a new list item when clicking on the "Add" button
+// Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
+//
+// 
+//
 function displayDeduction() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("deductionOptionBox").value;
+   /* 
+   switch(inputValue) {
+      case "Fall1":
+        inputValue = inputValue + " - 5"
+        totalDeductions.push(5)
+        console.log(totalDeductions)
+        break;
+      case "Cross2":
+        inputValue = inputValue + " - 10"
+        totalDeductions.push(10)
+        console.log(totalDeductions)
+    }
+    */
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -247,13 +264,11 @@ function displayDeduction() {
     document.getElementById("deductionUL").appendChild(li);
   }
   //document.getElementById("deductionOptionBox").value = "";
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
   }
-}
+ 
+  function coachSubmit() {
+
+  }
 
 /* This function creates the list of deductions within the deduction box, also checking whether the box
    has already been opened to prevent duplicated data [ACTUALLY ONLY NEEDED FOR EDITABLE DEDUCTIONS]
@@ -277,3 +292,8 @@ function displayDeduction() {
   }
 */
 
+/*NOTES:
+- Time how long it takes for coaches to score?
+- Make deductions an input box, not a list
+- HAVE A MODAL POP UP TO DISPLAY ANY DEDUCTION INFO FROM A BUTTON?
+*/
