@@ -100,7 +100,7 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
   }
 
-  .coachInputs {
+  .judgeInputs {
     width: 30%;
     padding: 12px 20px;
     margin: 8px 0;

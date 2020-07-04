@@ -139,7 +139,7 @@
           <br>
           <br>
          <!-- Search button -->
-          <button id="btnTrainingRedirect" type="submit" class="loginButton" onclick="hideFunc('trainingMenu','mainMenu')">Training Interface</button>
+          <button id="btnTrainingRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeTestMenu','mainMenu')">Judge Interface</button>
       </div> 
   </div>
   <div id="mainBack" class="backButtonDiv">
@@ -149,24 +149,24 @@
 
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
-<div id="trainingMenu" style="display: none;">
+<div id="judgeTestMenu" style="display: none;">
   <!-- TRAINING MENU -->
   <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
-    <h3 class="text-muted"> Training Menu </h3>
+    <h3 class="text-muted"> Judge Testing Menu </h3>
     <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
-    <h6 class="text-muted"> Here, an athlete can view their training results or a coach can score an athlete for training/review. </h4>
+    <h6 class="text-muted"> Here, judges can either score a practice clip to be evaluated based on their performance, or view coach results. </h4>
   </div>
 
   <div class="container-fluid">
     <!-- Create button -->
-      <button id="btnAthleteResultRedirect" type="submit" class="loginButton" onclick="hideFunc('athleteMenu','trainingMenu')">Athlete Results</button>
+      <button id="btnAthleteResultRedirect" type="submit" class="loginButton" onclick="hideFunc('athleteMenu','judgeTestMenu')">Judge Results</button>
       <br>
       <br>
     <!-- Login button -->
-      <button id="btnCoachScoreRedirect" type="submit" class="loginButton" onclick="hideFunc('coachScoreMenu','trainingMenu')">Coach Scoring</button>
+      <button id="btnJudgeScoreRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeScoreMenu','judgeTestMenu')">Judge Scoring</button>
   </div>
   <div id="trainingBack" class="backButtonDiv">
-    <button id="btnTrainingBack" type="submit" class="backButton" onclick="hideFunc('mainMenu','trainingMenu')">Back</button>
+    <button id="btnTrainingBack" type="submit" class="backButton" onclick="hideFunc('mainMenu','judgeTestMenu')">Back</button>
   </div>
 </div>
 </div>
@@ -182,41 +182,41 @@
    </div>
 
     <div id="athleteBack" class="backButtonDiv">
-      <button id="btnAthleteBack" type="submit" class="backButton" onclick="hideFunc('trainingMenu','athleteMenu')">Back</button>
+      <button id="btnAthleteBack" type="submit" class="backButton" onclick="hideFunc('judgeTestMenu','athleteMenu')">Back</button>
     </div>
   </div>
 
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
-  <div id="coachScoreMenu" style="display: none;">
+  <div id="judgeScoreMenu" style="display: none;">
    <!-- VIEWING MENU -->
     <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
-      <h3 class="text-muted"> Coach Scoring Menu </h3>
+      <h3 class="text-muted"> Judge Scoring Menu </h3>
       <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
     <h6 class="text-muted"> Here are a range of practice video clips, in which judges can be evaluated from. </h4>
    </div>
-   <div id="coachSelectionButtons">
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('coachScoreVideo1','coachScoreMenu')">Practice Clip No. 1</button>
+   <div id="judgeSelectionButtons">
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeScoreVideo1','judgeScoreMenu')">Practice Clip No. 1</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','coachScoreMenu')">Practice Clip No. 2</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 2</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','coachScoreMenu')">Practice Clip No. 3</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 3</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','coachScoreMenu')">Practice Clip No. 4</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 4</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','coachScoreMenu')">Practice Clip No. 5</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 5</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','coachScoreMenu')">Practice Clip No. 6</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 6</button>
 
    </div>
 
-    <div id="coachScBack" class="backButtonDiv">
-     <button id="btnCoachScBack" type="submit" class="backButton" onclick="hideFunc('trainingMenu','coachScoreMenu')">Back</button>
+    <div id="judgeScBack" class="backButtonDiv">
+     <button id="btnJudgeScBack" type="submit" class="backButton" onclick="hideFunc('judgeTestMenu','judgeScoreMenu')">Back</button>
    </div>
   </div>
 
@@ -237,7 +237,7 @@
       <br>
       <br>
     <!-- Login button -->
-      <button id="btnCoachScoreRedirect" type="submit" class="loginButton" onclick="hideFunc('compCreateMenu','judgeMenu')">Create Competition</button>
+      <button id="btnJudgeScoreRedirect" type="submit" class="loginButton" onclick="hideFunc('compCreateMenu','judgeMenu')">Create Competition</button>
   </div>
   <div id="judgeBack" class="backButtonDiv">
     <button id="btnJudgeBack" type="submit" class="backButton" onclick="hideFunc('mainMenu','judgeMenu')">Back</button>
@@ -313,7 +313,7 @@
 
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
-<div id="coachScoreVideo1" style="display: none;">
+<div id="judgeScoreVideo1" style="display: none;">
   <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
     <h3 class="text-muted"> Practice Clip 1 </h3>
     <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
@@ -343,39 +343,58 @@
   <svg width="400" height="100" >
       <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;"/>
       
-      <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores
-          <tspan x="15" y="45" id="shooterName" style="display: block"> Total Run Score:</tspan>
-          <tspan x="15" y="65" id="shooterName" style="display: block"> Total Air Score:</tspan>
-          <tspan x="15" y="85" id="shooterName" style="display: block"> Final Score:</tspan>
+      <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores:
+          <tspan x="15" y="45" id="TRScore" style="display: block"> Total Run Score:</tspan>
+          <tspan x="15" y="65" id="TAScore" style="display: block"> Total Air Score:</tspan>
+          <tspan x="15" y="85" id="FScore" style="display: block"> Final Score:</tspan>
       </text>
   </svg>
 </div>
 <h3> Run Scores </h3>
 <label> Run Base Score </label> 
-<input type="text" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="coachInputs">
+<input type="text" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
 <br>
 <!-- Login choice elements -->
   <label> Deductions: </label>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
+  <!--
   <select id='deductionOptionBox'>
-    <!-- FILL IN DEDUCTIONS -->
+   !!!!  FILL IN DEDUCTIONS !!!!
   <option id = "selectDeduction1" value="Fall1"> Fall </option>
   <option id = "selectDeduction2" value="Cross2"> Cross </option>
   <option id = "selectDeduction3" value="3"> Test3 </option>
   <option id = "selectDeduction4" value="4"> Test4 </option>
   <option id = "selectDeduction5" value="5"> Test5 </option>
   </select>
+  -->
   <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
-  <input type="text" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
+  <!-- <input type="text" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs"> -->
+  <select id='airOptionBox1'>
+    
+   <option id = "1selectAir1" value="7"> Straight </option>
+   <option id = "1selectAir2" value="5"> Twistr </option>
+   <option id = "1selectAir3" value="8"> Flip </option>
+   <option id = "1selectAir4" value="4"> 360 </option>
+   <option id = "1selectAir5" value="5"> idk </option>
+   </select>
 <br>
   <label> Air 2 Score </label> 
-  <input type="text" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
+  <select id='airOptionBox2'>
+    
+    <option id = "2selectAir1" value="7"> Straight </option>
+    <option id = "2selectAir2" value="5"> Twistr </option>
+    <option id = "2selectAir3" value="8"> Flip </option>
+    <option id = "2selectAir4" value="4"> 360 </option>
+    <option id = "2selectAir5" value="5"> idk </option>
+    </select>
+  <!-- <input type="text" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs"> -->
   <br>
-  <button id="submitVideo1" type="submit">Submit Final Scores</button>
-  <div id="coachScoreBack1" class="backButtonDiv">
-    <button id="btnCoachScoreBack1" type="submit" class="backButton" onclick="hideFunc('coachScoreMenu','coachScoreVideo1')">Back</button>
+  <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
+  <div id="judgeScoreBack1" class="backButtonDiv">
+    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
   </div>
 </div>
 

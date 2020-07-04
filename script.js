@@ -3,6 +3,7 @@ var userAccount = {}
 var userArray = []
 var flagDeductsOpened = false
 var totalDeductions = []
+var currentUser
 
 // |\|\|\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
 //\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
@@ -62,9 +63,12 @@ function newElement() {
 // This function creates user data that will be stored in local storage.
 function createAccount(){
   usernameInsertionSort()
+  currentUser = ""
   userAccount = {
     username: document.getElementById("unameInput").value,
-    password: document.getElementById("pswInput").value
+    password: document.getElementById("pswInput").value,
+    judgeScores: [],
+    needsAssessment: false
   }
   if(binarySearchUname(document.getElementById("unameInput").value) == true){
   var userArray = JSON.parse(localStorage.getItem("userArray"))
@@ -79,19 +83,28 @@ function createAccount(){
 
 function loginAccount(){
   usernameInsertionSort()
+  currentUser = ""
   //In this case, false means that the function has found the item
   if(binarySearchUname(document.getElementById("unameLoginInput").value) == false){
     PSWInsertionSort();
     if(binarySearchPSW(document.getElementById("pswLoginInput").value) == false){
+      currentUser = document.getElementById("unameLoginInput").value
+      console.log(currentUser)
     hideFunc('mainMenu','loginPage')
   
   } else {
 
   }
   }
-
+  var test = [
+    helpUser = {
+      arraytest: ["yeah", "yeah2"]
+    } 
+  ] 
+console.log(test[0].arraytest[0])
 }
 
+// This functions will search for any matching usernames
 function binarySearchUname(searchName) {
   var retrievedUsers = JSON.parse(localStorage.getItem("userArray"));
   var usernameArray = []
@@ -100,17 +113,15 @@ function binarySearchUname(searchName) {
     console.log(usernameArray)
   }
 
-
-
   //Will jump out if the array is already empty
-if(usernameArray.length == 0) {
-  return false;
-}
-  searchFlag = true
-  lower = 0;
-  upper = usernameArray.length - 1;
-  foundIt = false;
-  requiredName = searchName; // CHANGE
+  if(usernameArray.length == 0) {
+   return false;
+  }
+   searchFlag = true
+    lower = 0;
+    upper = usernameArray.length - 1;
+    foundIt = false;
+    requiredName = searchName; // CHANGE
 
   //This will iterate through the array until it has found the value it is looking for
   do {
@@ -139,6 +150,7 @@ if(usernameArray.length == 0) {
   }
 }
 
+// This functions will search for any matching passwords
 function binarySearchPSW(searchPSW,) {
   var retrievedUsers = JSON.parse(localStorage.getItem("userArray"));
   var passwordArray = []
@@ -186,6 +198,7 @@ if(passwordArray.length == 0) {
   }
 }
 
+// This function sorts the usernames, so it can be searched for the binary search
 function usernameInsertionSort() {
   //The following lines display the insertion sort algorithm which sorts the array
   tempArray = JSON.parse(localStorage.getItem("userArray"));
@@ -211,6 +224,7 @@ function usernameInsertionSort() {
   return;
 }
 
+// This function sorts the passwords, so it can be searched for the binary search
 function PSWInsertionSort() {
   //The following lines display the insertion sort algorithm which sorts the array
   tempArray = JSON.parse(localStorage.getItem("userArray"));
@@ -237,12 +251,15 @@ function PSWInsertionSort() {
 }
 
 // Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
-//
-// 
-//
 function displayDeduction() {
   var li = document.createElement("li");
-  var inputValue = document.getElementById("deductionOptionBox").value;
+  var inputValue = document.getElementById("DedScoreInput").value;
+  if(inputValue > 6) {
+    alert("Please enter a valid deduction.")
+    return
+  }
+  totalDeductions.push(inputValue);
+  console.log(totalDeductions);
    /* 
    switch(inputValue) {
       case "Fall1":
@@ -265,8 +282,31 @@ function displayDeduction() {
   }
   //document.getElementById("deductionOptionBox").value = "";
   }
- 
-  function coachSubmit() {
+
+  // This function calculates the final total scores, and saves them to local storage with the user attatched
+  function judgeSubmit() {
+    //Calculate & display the run score
+      //Total the deductions
+      var finalDeduct = 0
+      for(i=0;i<totalDeductions.length;i++){
+        finalDeduct = finalDeduct + Number(totalDeductions[i])
+        console.log(finalDeduct)
+      }
+    var finalRunScore = document.getElementById("RBScoreInput").value - finalDeduct
+      if(finalRunScore < 0){
+        finalRunScore = 0
+     }
+    console.log(finalRunScore)
+    document.getElementById("TRScore").innerHTML = "Total Run score is " + finalRunScore;
+
+     //Calculate & display the air score
+     var finalAirScore = Number(document.getElementById("airOptionBox1").value) + Number(document.getElementById("airOptionBox1").value)
+     document.getElementById("TAScore").innerHTML = "Total Air score is " + finalAirScore;
+
+     //Calculate & display the total score
+     var totalScore = finalRunScore + finalAirScore
+     document.getElementById("FScore").innerHTML = "Final score is " + totalScore;
+
 
   }
 
@@ -294,6 +334,6 @@ function displayDeduction() {
 
 /*NOTES:
 - Time how long it takes for coaches to score?
-- Make deductions an input box, not a list
 - HAVE A MODAL POP UP TO DISPLAY ANY DEDUCTION INFO FROM A BUTTON?
+- Make the airs a listr of tricks
 */
