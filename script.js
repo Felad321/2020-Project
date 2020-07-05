@@ -72,6 +72,9 @@ function createAccount(){
   }
   if(binarySearchUname(document.getElementById("unameInput").value) == true){
   var userArray = JSON.parse(localStorage.getItem("userArray"))
+      if(userArray == null){
+        userArray = []
+      }
     userArray.push(userAccount)
     localStorage.setItem("userArray",JSON.stringify(userArray))
   console.log(JSON.parse(localStorage.getItem("userArray")))
@@ -91,22 +94,23 @@ function loginAccount(){
       currentUser = document.getElementById("unameLoginInput").value
       console.log(currentUser)
     hideFunc('mainMenu','loginPage')
-  
-  } else {
-
-  }
-  }
+   }
+  } else
   var test = [
     helpUser = {
       arraytest: ["yeah", "yeah2"]
     } 
   ] 
 console.log(test[0].arraytest[0])
+alert("The login is invalid.")
 }
 
 // This functions will search for any matching usernames
 function binarySearchUname(searchName) {
   var retrievedUsers = JSON.parse(localStorage.getItem("userArray"));
+  if(retrievedUsers == null){
+    return true
+  } else
   var usernameArray = []
   for(i=0;i < retrievedUsers.length; i++){
     usernameArray.push(retrievedUsers[i].username)
@@ -201,7 +205,11 @@ if(passwordArray.length == 0) {
 // This function sorts the usernames, so it can be searched for the binary search
 function usernameInsertionSort() {
   //The following lines display the insertion sort algorithm which sorts the array
+
   tempArray = JSON.parse(localStorage.getItem("userArray"));
+  if(tempArray == null){
+    return
+  } else
   first = 0;
   last = tempArray.length - 1;
   positionOfNext = last - 1;
