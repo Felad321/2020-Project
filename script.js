@@ -78,6 +78,7 @@ function createAccount(){
     userArray.push(userAccount)
     localStorage.setItem("userArray",JSON.stringify(userArray))
   console.log(JSON.parse(localStorage.getItem("userArray")))
+  currentuser = document.getElementById("unameInput").value
   hideFunc('mainMenu','loginPage');
   } else {
     window.alert("That username is taken!")
@@ -146,11 +147,59 @@ function binarySearchUname(searchName) {
     }
   } while (!foundIt && lower <= upper);
 
-  //This will display its position back to the user
+  //This will return whether the uname has been found
   if (foundIt) {
     return false;
   } else {
     return true;
+  }
+}
+
+function binarySearchJudge(searchName) {
+  var retrievedUsers = JSON.parse(localStorage.getItem("userArray"));
+  if(retrievedUsers == null){
+    return true
+  } else
+  var usernameArray = []
+  for(i=0;i < retrievedUsers.length; i++){
+    usernameArray.push(retrievedUsers[i].username)
+    console.log(usernameArray)
+  }
+
+  //Will jump out if the array is already empty
+  if(usernameArray.length == 0) {
+   return false;
+  }
+   searchFlag = true
+    lower = 0;
+    upper = usernameArray.length - 1;
+    foundIt = false;
+    requiredName = searchName; // CHANGE
+
+  //This will iterate through the array until it has found the value it is looking for
+  do {
+    middle = Math.floor((upper + lower) / 2);
+
+    //If the value is not located in the middle, it will split the remaining array into 2 halves and will repeat the same process
+    if (
+      requiredName.toLowerCase() == usernameArray[middle].toLowerCase()
+    ) {
+      foundIt = true;
+      positionFound = middle;
+    } else if (
+      requiredName.toLowerCase() < usernameArray[middle].toLowerCase()
+    ) {
+      upper = middle - 1;
+    } else {
+      lower = middle + 1;
+    }
+  } while (!foundIt && lower <= upper);
+
+  //This will return whether the uname has been found
+  if (foundIt) {
+    return positionFound
+  } else {
+    return
   }
 }
 
@@ -194,7 +243,7 @@ if(passwordArray.length == 0) {
     }
   } while (!foundIt && lower <= upper);
 
-  //This will display its position back to the user
+  //This will return whether the uname has been found
   if (foundIt) {
     return false;
   } else {
@@ -315,6 +364,17 @@ function displayDeduction() {
      var totalScore = finalRunScore + finalAirScore
      document.getElementById("FScore").innerHTML = "Final score is " + totalScore;
 
+     //Update the judge's scores
+
+     usernameInsertionSort()
+     var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
+     var judgeIndex = binarySearchJudge(currentUser)
+     console.log(judgeIndex)
+     console.log(judgeUpdate[judgeIndex])
+     judgeUpdate[judgeIndex].judgeScores.push(totalScore)
+     console.log(judgeUpdate[judgeIndex].judgeScores)
+     localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
+
 
   }
 
@@ -343,5 +403,6 @@ function displayDeduction() {
 /*NOTES:
 - Time how long it takes for coaches to score?
 - HAVE A MODAL POP UP TO DISPLAY ANY DEDUCTION INFO FROM A BUTTON?
-- Make the airs a listr of tricks
+- Make the airs a listr of tricks 
+- If have time, seperate score comparisons into individual components?
 */
