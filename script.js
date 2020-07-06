@@ -340,7 +340,7 @@ function displayDeduction() {
   //document.getElementById("deductionOptionBox").value = "";
   }
 
-  // This function calculates the final total scores, and saves them to local storage with the user attatched
+  // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
   function judgeSubmit() {
     //Calculate & display the run score
       //Total the deductions
@@ -377,6 +377,40 @@ function displayDeduction() {
 
 
   }
+
+function createDiv(){
+  var judgeList = JSON.parse(localStorage.getItem("userArray"));
+  for(i=0;i < judgeList.length;i++){
+
+    // Creating paragraph to show judge names
+    var newPara = document.createElement("p");
+    var judgeNode = document.createTextNode(judgeList[i].username);
+    newPara.appendChild(judgeNode);
+    document.getElementById("judgeResults").appendChild(newPara);
+
+    // Creating a div element
+    var divElement = document.createElement("Div");
+    divElement.id = "divID";
+
+    // Styling it
+    divElement.style.textAlign = "center";
+    divElement.style.fontWeight = "bold";
+    divElement.style.fontSize = "smaller";
+    divElement.style.paddingTop = "15px";
+    divElement.style.overflow = "auto";
+    divElement.style.borderBottom = "2.5px solid #000"
+
+    // Adding a paragraph to it
+    var paragraph = document.createElement("P");
+    var text = document.createTextNode("Another paragraph, yay! This one will be styled different from the rest since we styled the DIV we specifically created.");
+    paragraph.appendChild(text);
+    divElement.appendChild(paragraph);
+
+
+    // Appending the div element to body
+    document.getElementById("judgeResults").appendChild(divElement);
+  }
+}
 
 /* This function creates the list of deductions within the deduction box, also checking whether the box
    has already been opened to prevent duplicated data [ACTUALLY ONLY NEEDED FOR EDITABLE DEDUCTIONS]

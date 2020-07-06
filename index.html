@@ -80,7 +80,7 @@
 
 <!-- Create Account Form -->
 <div>
-    <body>
+   
         
     <div id="createForm" class="modal">
       
@@ -115,8 +115,7 @@
     }
     </script>
   -->
-    </body>
-    </html>
+ 
     
 </div>
 </div>
@@ -159,7 +158,7 @@
 
   <div class="container-fluid">
     <!-- Create button -->
-      <button id="btnAthleteResultRedirect" type="submit" class="loginButton" onclick="hideFunc('athleteMenu','judgeTestMenu')">Judge Results</button>
+      <button id="btnAthleteResultRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeResultsMenu','judgeTestMenu'),createDiv()">Judge Results</button>
       <br>
       <br>
     <!-- Login button -->
@@ -173,16 +172,20 @@
 
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
-  <div id="athleteMenu" style="display: none;">
+  <div id="judgeResultsMenu" style="display: none;">
     <!-- VIEWING MENU -->
     <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
-      <h3 class="text-muted"> Athlete Menu </h3>
+      <h3 class="text-muted"> Judge Results Menu </h3>
      <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
-     <h6 class="text-muted"> CEpic </h4>
+     <h6 class="text-muted"> Here, the results of judge scoring tests can be viewed. </h4>
+      <div id="judgeResults" style="height: 34em;overflow:auto;border:2.5px solid #000;">
+        <!-- 35em? -->
+      
+      </div>
    </div>
 
-    <div id="athleteBack" class="backButtonDiv">
-      <button id="btnAthleteBack" type="submit" class="backButton" onclick="hideFunc('judgeTestMenu','athleteMenu')">Back</button>
+    <div id="judgeRBack" class="backButtonDiv">
+      <button id="btnJudgeRBack" type="submit" class="backButton" onclick="hideFunc('judgeTestMenu','judgeResultsMenu')">Back</button>
     </div>
   </div>
 
@@ -352,7 +355,7 @@
 </div>
 <h3> Run Scores </h3>
 <label> Run Base Score </label> 
-<input type="text" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
+<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
 <br>
 <!-- Login choice elements -->
   <label> Deductions: </label>
@@ -410,4 +413,5 @@
 <script type="text/javascript" src="script.js"></script>
 
 
-
+</body>
+</html>
