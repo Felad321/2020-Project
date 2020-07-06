@@ -17,7 +17,7 @@
         <div class="container-fluid" id="header">      
         <!--<img src="file:///Users/sammartin/Downloads/target.svg" style="width:120px;height:120px; padding-bottom:16px; padding-top: 24px; "> -->
         <br>
-        <h1> Skiing Competition System </h1>
+        <h1> Judging Training System </h1>
         </div>
 </div>
  <!-- <body onload="scoreboardSort()"></body> -->
@@ -321,22 +321,11 @@
     <h3 class="text-muted"> Practice Clip 1 </h3>
     <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
   <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
+    <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
- <!--
-   - Run base score
-   - Deductions
-   - Total Run Score (Base Score - Deductions) [Automatically calculated]
-   - Air 1 score
-   - Air 2 score
-   - Total Air Score (A1 + A2)
-   - Total Score (TA + TR)
-   <ul id="myUL" style="list-style: none;">
-       <li>God this is me when</li>
-      </ul>
- -->
  <div class="rightElements">
   <!-- Scoring elements & other information are below. These elements are on right side of page-->
+  
   <div style="width:400px;height:100px;border:2.5px solid #000;overflow:auto;">
     <p>Total Deductions:</p>
     <ul id="deductionUL" style="list-style: none;">
@@ -352,6 +341,7 @@
           <tspan x="15" y="85" id="FScore" style="display: block"> Final Score:</tspan>
       </text>
   </svg>
+  
 </div>
 <h3> Run Scores </h3>
 <label> Run Base Score </label> 
@@ -360,38 +350,38 @@
 <!-- Login choice elements -->
   <label> Deductions: </label>
   <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
-  <!--
-  <select id='deductionOptionBox'>
-   !!!!  FILL IN DEDUCTIONS !!!!
-  <option id = "selectDeduction1" value="Fall1"> Fall </option>
-  <option id = "selectDeduction2" value="Cross2"> Cross </option>
-  <option id = "selectDeduction3" value="3"> Test3 </option>
-  <option id = "selectDeduction4" value="4"> Test4 </option>
-  <option id = "selectDeduction5" value="5"> Test5 </option>
-  </select>
-  -->
   <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
   <!-- <input type="text" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs"> -->
+  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
   <select id='airOptionBox1'>
-    
-   <option id = "1selectAir1" value="7"> Straight </option>
-   <option id = "1selectAir2" value="5"> Twistr </option>
-   <option id = "1selectAir3" value="8"> Flip </option>
-   <option id = "1selectAir4" value="4"> 360 </option>
-   <option id = "1selectAir5" value="5"> idk </option>
+    <!-- MAKE DEGREE OF DIFFICULTY SELECT -->
+    <option id = "1selectAir1" value="0.98"> 7o </option>
+    <option id = "1selectAir2" value="0.93"> bG </option>
+    <option id = "1selectAir3" value="0.88"> bF </option>
+    <option id = "1selectAir4" value="0.86"> 7op </option>
+    <option id = "1selectAir5" value="0.83"> bp (W) </option>
+    <option id = "1selectAir6" value="0.8"> bP </option>
+    <option id = "1selectAir7" value="0.8"> bT </option>
+    <option id = "1selectAir8" value="0.75"> 3 </option>
+    <option id = "1selectAir9" value="0.73"> bp (M) </option>
    </select>
 <br>
   <label> Air 2 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
   <select id='airOptionBox2'>
-    
-    <option id = "2selectAir1" value="7"> Straight </option>
-    <option id = "2selectAir2" value="5"> Twistr </option>
-    <option id = "2selectAir3" value="8"> Flip </option>
-    <option id = "2selectAir4" value="4"> 360 </option>
-    <option id = "2selectAir5" value="5"> idk </option>
+    <!-- MAKE DEGREE OF DIFFICULTY SELECT -->
+    <option id = "2selectAir1" value="0.98"> 7o </option>
+    <option id = "2selectAir2" value="0.93"> bG </option>
+    <option id = "2selectAir3" value="0.88"> bF </option>
+    <option id = "2selectAir4" value="0.86"> 7op </option>
+    <option id = "2selectAir5" value="0.83"> bp (W) </option>
+    <option id = "2selectAir6" value="0.8"> bP </option>
+    <option id = "2selectAir7" value="0.8"> bT </option>
+    <option id = "2selectAir8" value="0.75"> 3 </option>
+    <option id = "2selectAir9" value="0.73"> bp (M) </option>
     </select>
   <!-- <input type="text" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs"> -->
   <br>

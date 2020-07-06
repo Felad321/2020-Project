@@ -342,17 +342,24 @@ function displayDeduction() {
 
   // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
   function judgeSubmit() {
-    //Calculate & display the run score
+    //Calculate & display the run score 
       //Total the deductions
       var finalDeduct = 0
       for(i=0;i<totalDeductions.length;i++){
         finalDeduct = finalDeduct + Number(totalDeductions[i])
         console.log(finalDeduct)
       }
-    var finalRunScore = document.getElementById("RBScoreInput").value - finalDeduct
-      if(finalRunScore < 0){
-        finalRunScore = 0
-     }
+      //Calculate the final run score
+      var runScore = document.getElementById("RBScoreInput").value
+      if(runScore > 20 || runScore < 0){
+        alert("Your run score is invalid.")
+        return
+      }
+
+      var finalRunScore = runScore - finalDeduct
+        if(finalRunScore < 0){
+         finalRunScore = 0
+        }
     console.log(finalRunScore)
     document.getElementById("TRScore").innerHTML = "Total Run score is " + finalRunScore;
 
@@ -439,4 +446,9 @@ function createDiv(){
 - HAVE A MODAL POP UP TO DISPLAY ANY DEDUCTION INFO FROM A BUTTON?
 - Make the airs a listr of tricks 
 - If have time, seperate score comparisons into individual components?
+- LIST OF THINGS TO DISPLAY
+  - Judge Scores vs Expert Scores
+    - JUDGE SCORES WILL BE STORED LIKE [1,24]
+      - 1 means first video, 24 will be total score
+  - Do they need evaluation?
 */
