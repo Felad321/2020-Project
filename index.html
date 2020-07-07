@@ -202,19 +202,19 @@
     <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeScoreVideo1','judgeScoreMenu')">Practice Clip No. 1</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 2</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeScoreVideo2','judgeScoreMenu')">Practice Clip No. 2</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 3</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeScoreVideo3','judgeScoreMenu')">Practice Clip No. 3</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 4</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeScoreVideo4','judgeScoreMenu')">Practice Clip No. 4</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 5</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeScoreVideo5','judgeScoreMenu')">Practice Clip No. 5</button>
     <br>
     <br>
-    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeMenu','judgeScoreMenu')">Practice Clip No. 6</button>
+    <button id="btnScoringRedirect" type="submit" class="loginButton" onclick="hideFunc('judgeScoreVideo6','judgeScoreMenu')">Practice Clip No. 6</button>
 
    </div>
 
@@ -327,7 +327,7 @@
   
   <div style="width:400px;height:100px;border:2.5px solid #000;overflow:auto;">
     <p>Total Deductions:</p>
-    <ul id="deductionUL" style="list-style: none;">
+    <ul id="deductionUL1" style="list-style: none;">
      </ul>
   </div>
   <br>
@@ -344,17 +344,17 @@
 </div>
 <h3> Run Scores </h3>
 <label> Run Base Score </label> 
-<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
+<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput1" class="judgeInputs">
 <br>
 <!-- Deduction choice elements -->
   <label> Deductions: </label>
-  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput1" class="judgeInputs">
   <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction1()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
-  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
-  <select id='airOptionBox1'>
+  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput1" class="coachInputs">
+  <select id='1airOptionBox1'>
     <option id = "1selectAir1" value=0.98> 7o </option>
     <option id = "1selectAir2" value=0.93> bG </option>
     <option id = "1selectAir3" value=0.88> bF </option>
@@ -367,8 +367,8 @@
    </select>
 <br>
   <label> Air 2 Score </label> 
-  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
-  <select id='airOptionBox2'>
+  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput1" class="coachInputs">
+  <select id='1airOptionBox2'>
     <option id = "2selectAir1" value=0.98> 7o </option>
     <option id = "2selectAir2" value=0.93> bG </option>
     <option id = "2selectAir3" value=0.88> bF </option>
@@ -391,7 +391,7 @@
 <!-- Video Scoring Page 2 -->
 <div id="judgeScoreVideo2" style="display: none;">
   <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
-    <h3 class="text-muted"> Practice Clip 1 </h3>
+    <h3 class="text-muted"> Practice Clip 2 </h3>
   <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
     <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -400,7 +400,7 @@
   
   <div style="width:400px;height:100px;border:2.5px solid #000;overflow:auto;">
     <p>Total Deductions:</p>
-    <ul id="deductionUL" style="list-style: none;">
+    <ul id="deductionUL2" style="list-style: none;">
      </ul>
   </div>
   <br>
@@ -408,26 +408,26 @@
       <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;"/>
       
       <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores:
-          <tspan x="15" y="45" id="TRScore" style="display: block"> Total Run Score:</tspan>
-          <tspan x="15" y="65" id="TAScore" style="display: block"> Total Air Score:</tspan>
-          <tspan x="15" y="85" id="FScore" style="display: block"> Final Score:</tspan>
+          <tspan x="15" y="45" id="TRScore2" style="display: block"> Total Run Score:</tspan>
+          <tspan x="15" y="65" id="TAScore2" style="display: block"> Total Air Score:</tspan>
+          <tspan x="15" y="85" id="FScore2" style="display: block"> Final Score:</tspan>
       </text>
   </svg>
   
 </div>
 <h3> Run Scores </h3>
 <label> Run Base Score </label> 
-<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
+<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput2" class="judgeInputs">
 <br>
 <!-- Deduction choice elements -->
   <label> Deductions: </label>
-  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
-  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput2" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction2()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
-  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
-  <select id='airOptionBox1'>
+  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput2" class="coachInputs">
+  <select id='2airOptionBox1'>
     <option id = "1selectAir1" value=0.98> 7o </option>
     <option id = "1selectAir2" value=0.93> bG </option>
     <option id = "1selectAir3" value=0.88> bF </option>
@@ -440,8 +440,8 @@
    </select>
 <br>
   <label> Air 2 Score </label> 
-  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
-  <select id='airOptionBox2'>
+  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput2" class="coachInputs">
+  <select id='2airOptionBox2'>
     <option id = "2selectAir1" value=0.98> 7o </option>
     <option id = "2selectAir2" value=0.93> bG </option>
     <option id = "2selectAir3" value=0.88> bF </option>
@@ -453,9 +453,9 @@
     <option id = "2selectAir9" value=0.73> bp (M) </option>
     </select>
   <br>
-  <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
+  <button id="submitVideo1" type="submit" onclick="judgeSubmit2()">Submit Final Scores</button>
   <div id="judgeScoreBack1" class="backButtonDiv">
-    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+    <button id="btnJudgeScoreBack2" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo2')">Back</button>
   </div>
 </div>
 </div>
@@ -464,7 +464,7 @@
 <!-- Video Scoring Page 3 -->
 <div id="judgeScoreVideo3" style="display: none;">
   <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
-    <h3 class="text-muted"> Practice Clip 1 </h3>
+    <h3 class="text-muted"> Practice Clip 3 </h3>
   <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
     <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -494,8 +494,8 @@
 <br>
 <!-- Deduction choice elements -->
   <label> Deductions: </label>
-  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
-  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput3" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction3()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
@@ -526,9 +526,9 @@
     <option id = "2selectAir9" value=0.73> bp (M) </option>
     </select>
   <br>
-  <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
+  <button id="submitVideo1" type="submit" onclick="judgeSubmit3()">Submit Final Scores</button>
   <div id="judgeScoreBack1" class="backButtonDiv">
-    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+    <button id="btnJudgeScoreBack3" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo3')">Back</button>
   </div>
 </div>
 </div>
@@ -537,7 +537,7 @@
 <!-- Video Scoring Page 4 -->
 <div id="judgeScoreVideo4" style="display: none;">
   <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
-    <h3 class="text-muted"> Practice Clip 1 </h3>
+    <h3 class="text-muted"> Practice Clip 4 </h3>
   <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
     <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -567,8 +567,8 @@
 <br>
 <!-- Deduction choice elements -->
   <label> Deductions: </label>
-  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
-  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput4" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction4()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
@@ -601,7 +601,7 @@
   <br>
   <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
   <div id="judgeScoreBack1" class="backButtonDiv">
-    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+    <button id="btnJudgeScoreBack4" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo4')">Back</button>
   </div>
 </div>
 </div>
@@ -610,7 +610,7 @@
 <!-- Video Scoring Page 5 -->
 <div id="judgeScoreVideo5" style="display: none;">
   <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
-    <h3 class="text-muted"> Practice Clip 1 </h3>
+    <h3 class="text-muted"> Practice Clip 5 </h3>
   <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
     <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -640,8 +640,8 @@
 <br>
 <!-- Deduction choice elements -->
   <label> Deductions: </label>
-  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
-  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput5" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction5()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
@@ -674,7 +674,7 @@
   <br>
   <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
   <div id="judgeScoreBack1" class="backButtonDiv">
-    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+    <button id="btnJudgeScoreBack5" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo5')">Back</button>
   </div>
 </div>
 </div>
@@ -683,7 +683,7 @@
 <!-- Video Scoring Page 5 -->
 <div id="judgeScoreVideo6" style="display: none;">
   <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
-    <h3 class="text-muted"> Practice Clip 1 </h3>
+    <h3 class="text-muted"> Practice Clip 6 </h3>
   <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
     <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -713,8 +713,8 @@
 <br>
 <!-- Deduction choice elements -->
   <label> Deductions: </label>
-  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
-  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput6" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction6()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
@@ -745,9 +745,9 @@
     <option id = "2selectAir9" value=0.73> bp (M) </option>
     </select>
   <br>
-  <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
+  <button id="submitVideo1" type="submit" onclick="judgeSubmit6()">Submit Final Scores</button>
   <div id="judgeScoreBack1" class="backButtonDiv">
-    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+    <button id="btnJudgeScoreBack6" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo6')">Back</button>
   </div>
 </div>
 </div>

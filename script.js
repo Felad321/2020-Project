@@ -310,32 +310,19 @@ function PSWInsertionSort() {
 // Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
 function displayDeduction1() {
   var li = document.createElement("li");
-  var inputValue = document.getElementById("DedScoreInput").value;
+  var inputValue = document.getElementById("DedScoreInput1").value;
   if(inputValue > 6) {
     alert("Please enter a valid deduction.")
     return
   }
   totalDeductions.push(inputValue);
   console.log(totalDeductions);
-   /* 
-   switch(inputValue) {
-      case "Fall1":
-        inputValue = inputValue + " - 5"
-        totalDeductions.push(5)
-        console.log(totalDeductions)
-        break;
-      case "Cross2":
-        inputValue = inputValue + " - 10"
-        totalDeductions.push(10)
-        console.log(totalDeductions)
-    }
-    */
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
     alert("Please enter a valid deduction.");
   } else {
-    document.getElementById("deductionUL").appendChild(li);
+    document.getElementById("deductionUL1").appendChild(li);
   }
   //document.getElementById("deductionOptionBox").value = "";
   }
@@ -350,7 +337,7 @@ function displayDeduction1() {
         console.log(finalDeduct)
       }
       //Calculate the final run score
-      var runScore = document.getElementById("RBScoreInput").value
+      var runScore = document.getElementById("RBScoreInput1").value
       if(runScore > 20 || runScore < 0){
         alert("Your run score is invalid.")
         return
@@ -364,12 +351,11 @@ function displayDeduction1() {
     document.getElementById("TRScore1").innerHTML = "Total Run score is " + finalRunScore;
 
      //Calculate & display the air score
-     console.log(document.getElementById("A1ScoreInput"))
-     console.log(document.getElementById("airOptionBox1").value)
-     var airScore1 = document.getElementById("A1ScoreInput").value * document.getElementById("airOptionBox1").value
+     console.log(document.getElementById("A1ScoreInput1"))
+     console.log(document.getElementById("1airOptionBox1").value)
+     var airScore1 = document.getElementById("A1ScoreInput1").value * document.getElementById("1airOptionBox1").value
      console.log(airScore1)
-     var airScore2 = document.getElementById("A2ScoreInput").value * document.getElementById("airOptionBox2").value
-     //var finalAirScore = Number(document.getElementById("airOptionBox1").value) + Number(document.getElementById("airOptionBox1").value)
+     var airScore2 = document.getElementById("A2ScoreInput1").value * document.getElementById("1airOptionBox2").value
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore1").innerHTML = "Total Air score is " + finalAirScore;
 
@@ -423,6 +409,355 @@ function createDiv(){
     document.getElementById("judgeResults").appendChild(divElement);
   }
 }
+
+// Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
+function displayDeduction2() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("DedScoreInput2").value;
+  if(inputValue > 6) {
+    alert("Please enter a valid deduction.")
+    return
+  }
+  totalDeductions.push(inputValue);
+  console.log(totalDeductions);
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Please enter a valid deduction.");
+  } else {
+    document.getElementById("deductionUL2").appendChild(li);
+  }
+  //document.getElementById("deductionOptionBox").value = "";
+  }
+
+  // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
+  function judgeSubmit2() {
+    //Calculate & display the run score 
+      //Total the deductions
+      var finalDeduct = 0
+      for(i=0;i<totalDeductions.length;i++){
+        finalDeduct = finalDeduct + Number(totalDeductions[i])
+        console.log(finalDeduct)
+      }
+      //Calculate the final run score
+      var runScore = document.getElementById("RBScoreInput2").value
+      if(runScore > 20 || runScore < 0){
+        alert("Your run score is invalid.")
+        return
+      }
+
+      var finalRunScore = runScore - finalDeduct
+        if(finalRunScore < 0){
+         finalRunScore = 0
+        }
+    console.log(finalRunScore)
+    document.getElementById("TRScore2").innerHTML = "Total Run score is " + finalRunScore;
+
+     //Calculate & display the air score
+     console.log(document.getElementById("A1ScoreInput2"))
+     console.log(document.getElementById("2airOptionBox1").value)
+     var airScore1 = document.getElementById("A1ScoreInput2").value * document.getElementById("2airOptionBox1").value
+     console.log(airScore1)
+     var airScore2 = document.getElementById("A2ScoreInput2").value * document.getElementById("2airOptionBox2").value
+     var finalAirScore = airScore1 + airScore2
+     document.getElementById("TAScore2").innerHTML = "Total Air score is " + finalAirScore;
+
+     //Calculate & display the total score
+     var totalScore = Number((finalRunScore + finalAirScore).toFixed(2))
+     document.getElementById("FScore2").innerHTML = "Final score is " + totalScore;
+
+     //Update the judge's scores
+     usernameInsertionSort()
+     var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
+     var judgeIndex = binarySearchJudge(currentUser)
+     console.log(judgeIndex)
+     console.log(judgeUpdate[judgeIndex])
+     judgeUpdate[judgeIndex].judgeScores.push([2,totalScore])
+     console.log(judgeUpdate[judgeIndex].judgeScores)
+     localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
+
+
+  }
+
+
+
+// Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
+function displayDeduction3() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("DedScoreInput3").value;
+  if(inputValue > 6) {
+    alert("Please enter a valid deduction.")
+    return
+  }
+  totalDeductions.push(inputValue);
+  console.log(totalDeductions);
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Please enter a valid deduction.");
+  } else {
+    document.getElementById("deductionUL3").appendChild(li);
+  }
+  //document.getElementById("deductionOptionBox").value = "";
+  }
+
+  // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
+  function judgeSubmit3() {
+    //Calculate & display the run score 
+      //Total the deductions
+      var finalDeduct = 0
+      for(i=0;i<totalDeductions.length;i++){
+        finalDeduct = finalDeduct + Number(totalDeductions[i])
+        console.log(finalDeduct)
+      }
+      //Calculate the final run score
+      var runScore = document.getElementById("RBScoreInput3").value
+      if(runScore > 20 || runScore < 0){
+        alert("Your run score is invalid.")
+        return
+      }
+
+      var finalRunScore = runScore - finalDeduct
+        if(finalRunScore < 0){
+         finalRunScore = 0
+        }
+    console.log(finalRunScore)
+    document.getElementById("TRScore3").innerHTML = "Total Run score is " + finalRunScore;
+
+     //Calculate & display the air score
+     console.log(document.getElementById("A1ScoreInput3"))
+     console.log(document.getElementById("3airOptionBox1").value)
+     var airScore1 = document.getElementById("A1ScoreInput3").value * document.getElementById("3airOptionBox1").value
+     console.log(airScore1)
+     var airScore2 = document.getElementById("A2ScoreInput3").value * document.getElementById("3airOptionBox2").value
+     var finalAirScore = airScore1 + airScore2
+     document.getElementById("TAScore3").innerHTML = "Total Air score is " + finalAirScore;
+
+     //Calculate & display the total score
+     var totalScore = Number((finalRunScore + finalAirScore).toFixed(2))
+     document.getElementById("FScore3").innerHTML = "Final score is " + totalScore;
+
+     //Update the judge's scores
+     usernameInsertionSort()
+     var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
+     var judgeIndex = binarySearchJudge(currentUser)
+     console.log(judgeIndex)
+     console.log(judgeUpdate[judgeIndex])
+     judgeUpdate[judgeIndex].judgeScores.push([3,totalScore])
+     console.log(judgeUpdate[judgeIndex].judgeScores)
+     localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
+
+
+  }
+
+// Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
+function displayDeduction4() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("DedScoreInput4").value;
+  if(inputValue > 6) {
+    alert("Please enter a valid deduction.")
+    return
+  }
+  totalDeductions.push(inputValue);
+  console.log(totalDeductions);
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Please enter a valid deduction.");
+  } else {
+    document.getElementById("deductionUL4").appendChild(li);
+  }
+  //document.getElementById("deductionOptionBox").value = "";
+  }
+
+  // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
+  function judgeSubmit4() {
+    //Calculate & display the run score 
+      //Total the deductions
+      var finalDeduct = 0
+      for(i=0;i<totalDeductions.length;i++){
+        finalDeduct = finalDeduct + Number(totalDeductions[i])
+        console.log(finalDeduct)
+      }
+      //Calculate the final run score
+      var runScore = document.getElementById("RBScoreInput4").value
+      if(runScore > 20 || runScore < 0){
+        alert("Your run score is invalid.")
+        return
+      }
+
+      var finalRunScore = runScore - finalDeduct
+        if(finalRunScore < 0){
+         finalRunScore = 0
+        }
+    console.log(finalRunScore)
+    document.getElementById("TRScore4").innerHTML = "Total Run score is " + finalRunScore;
+
+     //Calculate & display the air score
+     console.log(document.getElementById("A1ScoreInput4"))
+     console.log(document.getElementById("4airOptionBox1").value)
+     var airScore1 = document.getElementById("A1ScoreInput4").value * document.getElementById("4airOptionBox1").value
+     console.log(airScore1)
+     var airScore2 = document.getElementById("A2ScoreInput4").value * document.getElementById("4airOptionBox2").value
+     var finalAirScore = airScore1 + airScore2
+     document.getElementById("TAScore4").innerHTML = "Total Air score is " + finalAirScore;
+
+     //Calculate & display the total score
+     var totalScore = Number((finalRunScore + finalAirScore).toFixed(2))
+     document.getElementById("FScore4").innerHTML = "Final score is " + totalScore;
+
+     //Update the judge's scores
+     usernameInsertionSort()
+     var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
+     var judgeIndex = binarySearchJudge(currentUser)
+     console.log(judgeIndex)
+     console.log(judgeUpdate[judgeIndex])
+     judgeUpdate[judgeIndex].judgeScores.push([4,totalScore])
+     console.log(judgeUpdate[judgeIndex].judgeScores)
+     localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
+
+
+  }
+
+// Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
+function displayDeduction5() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("DedScoreInput1").value;
+  if(inputValue > 6) {
+    alert("Please enter a valid deduction.")
+    return
+  }
+  totalDeductions.push(inputValue);
+  console.log(totalDeductions);
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Please enter a valid deduction.");
+  } else {
+    document.getElementById("deductionUL1").appendChild(li);
+  }
+  //document.getElementById("deductionOptionBox").value = "";
+  }
+
+  // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
+  function judgeSubmit5() {
+    //Calculate & display the run score 
+      //Total the deductions
+      var finalDeduct = 0
+      for(i=0;i<totalDeductions.length;i++){
+        finalDeduct = finalDeduct + Number(totalDeductions[i])
+        console.log(finalDeduct)
+      }
+      //Calculate the final run score
+      var runScore = document.getElementById("RBScoreInput5").value
+      if(runScore > 20 || runScore < 0){
+        alert("Your run score is invalid.")
+        return
+      }
+
+      var finalRunScore = runScore - finalDeduct
+        if(finalRunScore < 0){
+         finalRunScore = 0
+        }
+    console.log(finalRunScore)
+    document.getElementById("TRScore5").innerHTML = "Total Run score is " + finalRunScore;
+
+     //Calculate & display the air score
+     console.log(document.getElementById("A1ScoreInput5"))
+     console.log(document.getElementById("5airOptionBox1").value)
+     var airScore1 = document.getElementById("A1ScoreInput5").value * document.getElementById("5airOptionBox1").value
+     console.log(airScore1)
+     var airScore2 = document.getElementById("A2ScoreInput5").value * document.getElementById("5airOptionBox2").value
+     var finalAirScore = airScore1 + airScore2
+     document.getElementById("TAScore5").innerHTML = "Total Air score is " + finalAirScore;
+
+     //Calculate & display the total score
+     var totalScore = Number((finalRunScore + finalAirScore).toFixed(2))
+     document.getElementById("FScore5").innerHTML = "Final score is " + totalScore;
+
+     //Update the judge's scores
+     usernameInsertionSort()
+     var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
+     var judgeIndex = binarySearchJudge(currentUser)
+     console.log(judgeIndex)
+     console.log(judgeUpdate[judgeIndex])
+     judgeUpdate[judgeIndex].judgeScores.push([5,totalScore])
+     console.log(judgeUpdate[judgeIndex].judgeScores)
+     localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
+
+
+  }
+
+// Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
+function displayDeduction6() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("DedScoreInput6").value;
+  if(inputValue > 6) {
+    alert("Please enter a valid deduction.")
+    return
+  }
+  totalDeductions.push(inputValue);
+  console.log(totalDeductions);
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Please enter a valid deduction.");
+  } else {
+    document.getElementById("deductionUL6").appendChild(li);
+  }
+  //document.getElementById("deductionOptionBox").value = "";
+  }
+
+  // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
+  function judgeSubmit6() {
+    //Calculate & display the run score 
+      //Total the deductions
+      var finalDeduct = 0
+      for(i=0;i<totalDeductions.length;i++){
+        finalDeduct = finalDeduct + Number(totalDeductions[i])
+        console.log(finalDeduct)
+      }
+      //Calculate the final run score
+      var runScore = document.getElementById("RBScoreInput6").value
+      if(runScore > 20 || runScore < 0){
+        alert("Your run score is invalid.")
+        return
+      }
+
+      var finalRunScore = runScore - finalDeduct
+        if(finalRunScore < 0){
+         finalRunScore = 0
+        }
+    console.log(finalRunScore)
+    document.getElementById("TRScore6").innerHTML = "Total Run score is " + finalRunScore;
+
+     //Calculate & display the air score
+     console.log(document.getElementById("A1ScoreInput6"))
+     console.log(document.getElementById("6airOptionBox1").value)
+     var airScore1 = document.getElementById("A1ScoreInput6").value * document.getElementById("6airOptionBox1").value
+     console.log(airScore1)
+     var airScore2 = document.getElementById("A2ScoreInput6").value * document.getElementById("6airOptionBox2").value
+     var finalAirScore = airScore1 + airScore2
+     document.getElementById("TAScore6").innerHTML = "Total Air score is " + finalAirScore;
+
+     //Calculate & display the total score
+     var totalScore = Number((finalRunScore + finalAirScore).toFixed(2))
+     document.getElementById("FScore6").innerHTML = "Final score is " + totalScore;
+
+     //Update the judge's scores
+     usernameInsertionSort()
+     var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
+     var judgeIndex = binarySearchJudge(currentUser)
+     console.log(judgeIndex)
+     console.log(judgeUpdate[judgeIndex])
+     judgeUpdate[judgeIndex].judgeScores.push([6,totalScore])
+     console.log(judgeUpdate[judgeIndex].judgeScores)
+     localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
+
+
+  }
+
+
 
 /* This function creates the list of deductions within the deduction box, also checking whether the box
    has already been opened to prevent duplicated data [ACTUALLY ONLY NEEDED FOR EDITABLE DEDUCTIONS]
