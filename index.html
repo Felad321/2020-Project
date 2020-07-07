@@ -315,11 +315,83 @@
 </div>
 
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
-
+<!-- Video Scoring Page 1 -->
 <div id="judgeScoreVideo1" style="display: none;">
   <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
     <h3 class="text-muted"> Practice Clip 1 </h3>
-    <!-- ADJUST TEXT FONT ETC LATER (((((((())))))))-->
+  <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
+    <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <div class="rightElements">
+  <!-- Scoring elements & other information are below. These elements are on right side of page-->
+  
+  <div style="width:400px;height:100px;border:2.5px solid #000;overflow:auto;">
+    <p>Total Deductions:</p>
+    <ul id="deductionUL" style="list-style: none;">
+     </ul>
+  </div>
+  <br>
+  <svg width="400" height="100" >
+      <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;"/>
+      
+      <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores:
+          <tspan x="15" y="45" id="TRScore1" style="display: block"> Total Run Score:</tspan>
+          <tspan x="15" y="65" id="TAScore1" style="display: block"> Total Air Score:</tspan>
+          <tspan x="15" y="85" id="FScore1" style="display: block"> Final Score:</tspan>
+      </text>
+  </svg>
+  
+</div>
+<h3> Run Scores </h3>
+<label> Run Base Score </label> 
+<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
+<br>
+<!-- Deduction choice elements -->
+  <label> Deductions: </label>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction1()">Submit Deduction</button>
+<br>
+  <h3> Air Scores </h3>
+  <label> Air 1 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
+  <select id='airOptionBox1'>
+    <option id = "1selectAir1" value=0.98> 7o </option>
+    <option id = "1selectAir2" value=0.93> bG </option>
+    <option id = "1selectAir3" value=0.88> bF </option>
+    <option id = "1selectAir4" value=0.86> 7op </option>
+    <option id = "1selectAir5" value=0.83> bp (W) </option>
+    <option id = "1selectAir6" value=0.8> bP </option>
+    <option id = "1selectAir7" value=0.8> bT </option>
+    <option id = "1selectAir8" value=0.75> 3 </option>
+    <option id = "1selectAir9" value=0.73> bp (M) </option>
+   </select>
+<br>
+  <label> Air 2 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
+  <select id='airOptionBox2'>
+    <option id = "2selectAir1" value=0.98> 7o </option>
+    <option id = "2selectAir2" value=0.93> bG </option>
+    <option id = "2selectAir3" value=0.88> bF </option>
+    <option id = "2selectAir4" value=0.86> 7op </option>
+    <option id = "2selectAir5" value=0.83> bp (W) </option>
+    <option id = "2selectAir6" value=0.8> bP </option>
+    <option id = "2selectAir7" value=0.8> bT </option>
+    <option id = "2selectAir8" value=0.75> 3 </option>
+    <option id = "2selectAir9" value=0.73> bp (M) </option>
+    </select>
+  <br>
+  <button id="submitVideo1" type="submit" onclick="judgeSubmit1()">Submit Final Scores</button>
+  <div id="judgeScoreBack1" class="backButtonDiv">
+    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+  </div>
+</div>
+</div>
+
+
+<!-- Video Scoring Page 2 -->
+<div id="judgeScoreVideo2" style="display: none;">
+  <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+    <h3 class="text-muted"> Practice Clip 1 </h3>
   <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
     <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -347,49 +419,339 @@
 <label> Run Base Score </label> 
 <input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
 <br>
-<!-- Login choice elements -->
+<!-- Deduction choice elements -->
   <label> Deductions: </label>
   <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
   <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
 <br>
   <h3> Air Scores </h3>
   <label> Air 1 Score </label> 
-  <!-- <input type="text" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs"> -->
   <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
   <select id='airOptionBox1'>
-    <!-- MAKE DEGREE OF DIFFICULTY SELECT -->
-    <option id = "1selectAir1" value="0.98"> 7o </option>
-    <option id = "1selectAir2" value="0.93"> bG </option>
-    <option id = "1selectAir3" value="0.88"> bF </option>
-    <option id = "1selectAir4" value="0.86"> 7op </option>
-    <option id = "1selectAir5" value="0.83"> bp (W) </option>
-    <option id = "1selectAir6" value="0.8"> bP </option>
-    <option id = "1selectAir7" value="0.8"> bT </option>
-    <option id = "1selectAir8" value="0.75"> 3 </option>
-    <option id = "1selectAir9" value="0.73"> bp (M) </option>
+    <option id = "1selectAir1" value=0.98> 7o </option>
+    <option id = "1selectAir2" value=0.93> bG </option>
+    <option id = "1selectAir3" value=0.88> bF </option>
+    <option id = "1selectAir4" value=0.86> 7op </option>
+    <option id = "1selectAir5" value=0.83> bp (W) </option>
+    <option id = "1selectAir6" value=0.8> bP </option>
+    <option id = "1selectAir7" value=0.8> bT </option>
+    <option id = "1selectAir8" value=0.75> 3 </option>
+    <option id = "1selectAir9" value=0.73> bp (M) </option>
    </select>
 <br>
   <label> Air 2 Score </label> 
   <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
   <select id='airOptionBox2'>
-    <!-- MAKE DEGREE OF DIFFICULTY SELECT -->
-    <option id = "2selectAir1" value="0.98"> 7o </option>
-    <option id = "2selectAir2" value="0.93"> bG </option>
-    <option id = "2selectAir3" value="0.88"> bF </option>
-    <option id = "2selectAir4" value="0.86"> 7op </option>
-    <option id = "2selectAir5" value="0.83"> bp (W) </option>
-    <option id = "2selectAir6" value="0.8"> bP </option>
-    <option id = "2selectAir7" value="0.8"> bT </option>
-    <option id = "2selectAir8" value="0.75"> 3 </option>
-    <option id = "2selectAir9" value="0.73"> bp (M) </option>
+    <option id = "2selectAir1" value=0.98> 7o </option>
+    <option id = "2selectAir2" value=0.93> bG </option>
+    <option id = "2selectAir3" value=0.88> bF </option>
+    <option id = "2selectAir4" value=0.86> 7op </option>
+    <option id = "2selectAir5" value=0.83> bp (W) </option>
+    <option id = "2selectAir6" value=0.8> bP </option>
+    <option id = "2selectAir7" value=0.8> bT </option>
+    <option id = "2selectAir8" value=0.75> 3 </option>
+    <option id = "2selectAir9" value=0.73> bp (M) </option>
     </select>
-  <!-- <input type="text" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs"> -->
   <br>
   <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
   <div id="judgeScoreBack1" class="backButtonDiv">
     <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
   </div>
 </div>
+</div>
+
+
+<!-- Video Scoring Page 3 -->
+<div id="judgeScoreVideo3" style="display: none;">
+  <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+    <h3 class="text-muted"> Practice Clip 1 </h3>
+  <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
+    <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <div class="rightElements">
+  <!-- Scoring elements & other information are below. These elements are on right side of page-->
+  
+  <div style="width:400px;height:100px;border:2.5px solid #000;overflow:auto;">
+    <p>Total Deductions:</p>
+    <ul id="deductionUL" style="list-style: none;">
+     </ul>
+  </div>
+  <br>
+  <svg width="400" height="100" >
+      <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;"/>
+      
+      <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores:
+          <tspan x="15" y="45" id="TRScore" style="display: block"> Total Run Score:</tspan>
+          <tspan x="15" y="65" id="TAScore" style="display: block"> Total Air Score:</tspan>
+          <tspan x="15" y="85" id="FScore" style="display: block"> Final Score:</tspan>
+      </text>
+  </svg>
+  
+</div>
+<h3> Run Scores </h3>
+<label> Run Base Score </label> 
+<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
+<br>
+<!-- Deduction choice elements -->
+  <label> Deductions: </label>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
+<br>
+  <h3> Air Scores </h3>
+  <label> Air 1 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
+  <select id='airOptionBox1'>
+    <option id = "1selectAir1" value=0.98> 7o </option>
+    <option id = "1selectAir2" value=0.93> bG </option>
+    <option id = "1selectAir3" value=0.88> bF </option>
+    <option id = "1selectAir4" value=0.86> 7op </option>
+    <option id = "1selectAir5" value=0.83> bp (W) </option>
+    <option id = "1selectAir6" value=0.8> bP </option>
+    <option id = "1selectAir7" value=0.8> bT </option>
+    <option id = "1selectAir8" value=0.75> 3 </option>
+    <option id = "1selectAir9" value=0.73> bp (M) </option>
+   </select>
+<br>
+  <label> Air 2 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
+  <select id='airOptionBox2'>
+    <option id = "2selectAir1" value=0.98> 7o </option>
+    <option id = "2selectAir2" value=0.93> bG </option>
+    <option id = "2selectAir3" value=0.88> bF </option>
+    <option id = "2selectAir4" value=0.86> 7op </option>
+    <option id = "2selectAir5" value=0.83> bp (W) </option>
+    <option id = "2selectAir6" value=0.8> bP </option>
+    <option id = "2selectAir7" value=0.8> bT </option>
+    <option id = "2selectAir8" value=0.75> 3 </option>
+    <option id = "2selectAir9" value=0.73> bp (M) </option>
+    </select>
+  <br>
+  <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
+  <div id="judgeScoreBack1" class="backButtonDiv">
+    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+  </div>
+</div>
+</div>
+
+
+<!-- Video Scoring Page 4 -->
+<div id="judgeScoreVideo4" style="display: none;">
+  <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+    <h3 class="text-muted"> Practice Clip 1 </h3>
+  <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
+    <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <div class="rightElements">
+  <!-- Scoring elements & other information are below. These elements are on right side of page-->
+  
+  <div style="width:400px;height:100px;border:2.5px solid #000;overflow:auto;">
+    <p>Total Deductions:</p>
+    <ul id="deductionUL" style="list-style: none;">
+     </ul>
+  </div>
+  <br>
+  <svg width="400" height="100" >
+      <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;"/>
+      
+      <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores:
+          <tspan x="15" y="45" id="TRScore" style="display: block"> Total Run Score:</tspan>
+          <tspan x="15" y="65" id="TAScore" style="display: block"> Total Air Score:</tspan>
+          <tspan x="15" y="85" id="FScore" style="display: block"> Final Score:</tspan>
+      </text>
+  </svg>
+  
+</div>
+<h3> Run Scores </h3>
+<label> Run Base Score </label> 
+<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
+<br>
+<!-- Deduction choice elements -->
+  <label> Deductions: </label>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
+<br>
+  <h3> Air Scores </h3>
+  <label> Air 1 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
+  <select id='airOptionBox1'>
+    <option id = "1selectAir1" value=0.98> 7o </option>
+    <option id = "1selectAir2" value=0.93> bG </option>
+    <option id = "1selectAir3" value=0.88> bF </option>
+    <option id = "1selectAir4" value=0.86> 7op </option>
+    <option id = "1selectAir5" value=0.83> bp (W) </option>
+    <option id = "1selectAir6" value=0.8> bP </option>
+    <option id = "1selectAir7" value=0.8> bT </option>
+    <option id = "1selectAir8" value=0.75> 3 </option>
+    <option id = "1selectAir9" value=0.73> bp (M) </option>
+   </select>
+<br>
+  <label> Air 2 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
+  <select id='airOptionBox2'>
+    <option id = "2selectAir1" value=0.98> 7o </option>
+    <option id = "2selectAir2" value=0.93> bG </option>
+    <option id = "2selectAir3" value=0.88> bF </option>
+    <option id = "2selectAir4" value=0.86> 7op </option>
+    <option id = "2selectAir5" value=0.83> bp (W) </option>
+    <option id = "2selectAir6" value=0.8> bP </option>
+    <option id = "2selectAir7" value=0.8> bT </option>
+    <option id = "2selectAir8" value=0.75> 3 </option>
+    <option id = "2selectAir9" value=0.73> bp (M) </option>
+    </select>
+  <br>
+  <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
+  <div id="judgeScoreBack1" class="backButtonDiv">
+    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+  </div>
+</div>
+</div>
+
+
+<!-- Video Scoring Page 5 -->
+<div id="judgeScoreVideo5" style="display: none;">
+  <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+    <h3 class="text-muted"> Practice Clip 1 </h3>
+  <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
+    <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <div class="rightElements">
+  <!-- Scoring elements & other information are below. These elements are on right side of page-->
+  
+  <div style="width:400px;height:100px;border:2.5px solid #000;overflow:auto;">
+    <p>Total Deductions:</p>
+    <ul id="deductionUL" style="list-style: none;">
+     </ul>
+  </div>
+  <br>
+  <svg width="400" height="100" >
+      <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;"/>
+      
+      <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores:
+          <tspan x="15" y="45" id="TRScore" style="display: block"> Total Run Score:</tspan>
+          <tspan x="15" y="65" id="TAScore" style="display: block"> Total Air Score:</tspan>
+          <tspan x="15" y="85" id="FScore" style="display: block"> Final Score:</tspan>
+      </text>
+  </svg>
+  
+</div>
+<h3> Run Scores </h3>
+<label> Run Base Score </label> 
+<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
+<br>
+<!-- Deduction choice elements -->
+  <label> Deductions: </label>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
+<br>
+  <h3> Air Scores </h3>
+  <label> Air 1 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
+  <select id='airOptionBox1'>
+    <option id = "1selectAir1" value=0.98> 7o </option>
+    <option id = "1selectAir2" value=0.93> bG </option>
+    <option id = "1selectAir3" value=0.88> bF </option>
+    <option id = "1selectAir4" value=0.86> 7op </option>
+    <option id = "1selectAir5" value=0.83> bp (W) </option>
+    <option id = "1selectAir6" value=0.8> bP </option>
+    <option id = "1selectAir7" value=0.8> bT </option>
+    <option id = "1selectAir8" value=0.75> 3 </option>
+    <option id = "1selectAir9" value=0.73> bp (M) </option>
+   </select>
+<br>
+  <label> Air 2 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
+  <select id='airOptionBox2'>
+    <option id = "2selectAir1" value=0.98> 7o </option>
+    <option id = "2selectAir2" value=0.93> bG </option>
+    <option id = "2selectAir3" value=0.88> bF </option>
+    <option id = "2selectAir4" value=0.86> 7op </option>
+    <option id = "2selectAir5" value=0.83> bp (W) </option>
+    <option id = "2selectAir6" value=0.8> bP </option>
+    <option id = "2selectAir7" value=0.8> bT </option>
+    <option id = "2selectAir8" value=0.75> 3 </option>
+    <option id = "2selectAir9" value=0.73> bp (M) </option>
+    </select>
+  <br>
+  <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
+  <div id="judgeScoreBack1" class="backButtonDiv">
+    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+  </div>
+</div>
+</div>
+
+
+<!-- Video Scoring Page 5 -->
+<div id="judgeScoreVideo6" style="display: none;">
+  <div class="container-fluid" style="padding-top: 1em; padding-left: 2em;">
+    <h3 class="text-muted"> Practice Clip 1 </h3>
+  <h6 class="text-muted"> Please score the below video clip as accurately as possible. </h4>
+    <iframe width="700" height="200" src="https://www.youtube.com/embed/81eriNk6mG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <div class="rightElements">
+  <!-- Scoring elements & other information are below. These elements are on right side of page-->
+  
+  <div style="width:400px;height:100px;border:2.5px solid #000;overflow:auto;">
+    <p>Total Deductions:</p>
+    <ul id="deductionUL" style="list-style: none;">
+     </ul>
+  </div>
+  <br>
+  <svg width="400" height="100" >
+      <rect width="400" height="100" style="fill:white;stroke:black;stroke-width:5;"/>
+      
+      <text x="15" y="25" fill="black" id="targetUsernameOutput"> Total Scores:
+          <tspan x="15" y="45" id="TRScore" style="display: block"> Total Run Score:</tspan>
+          <tspan x="15" y="65" id="TAScore" style="display: block"> Total Air Score:</tspan>
+          <tspan x="15" y="85" id="FScore" style="display: block"> Final Score:</tspan>
+      </text>
+  </svg>
+  
+</div>
+<h3> Run Scores </h3>
+<label> Run Base Score </label> 
+<input type="number" max="20" placeholder="Enter Run Base Score Here" id="RBScoreInput" class="judgeInputs">
+<br>
+<!-- Deduction choice elements -->
+  <label> Deductions: </label>
+  <input type="number" max="6" placeholder="Enter Deduction Score Here" id="DedScoreInput" class="judgeInputs">
+  <button id="btnSelectDeduct" type="submit" class="deductionSelectButton" onclick="displayDeduction()">Submit Deduction</button>
+<br>
+  <h3> Air Scores </h3>
+  <label> Air 1 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 1 Score Here" id="A1ScoreInput" class="coachInputs">
+  <select id='airOptionBox1'>
+    <option id = "1selectAir1" value=0.98> 7o </option>
+    <option id = "1selectAir2" value=0.93> bG </option>
+    <option id = "1selectAir3" value=0.88> bF </option>
+    <option id = "1selectAir4" value=0.86> 7op </option>
+    <option id = "1selectAir5" value=0.83> bp (W) </option>
+    <option id = "1selectAir6" value=0.8> bP </option>
+    <option id = "1selectAir7" value=0.8> bT </option>
+    <option id = "1selectAir8" value=0.75> 3 </option>
+    <option id = "1selectAir9" value=0.73> bp (M) </option>
+   </select>
+<br>
+  <label> Air 2 Score </label> 
+  <input type="number" max="10" placeholder="Enter Air 2 Score Here" id="A2ScoreInput" class="coachInputs">
+  <select id='airOptionBox2'>
+    <option id = "2selectAir1" value=0.98> 7o </option>
+    <option id = "2selectAir2" value=0.93> bG </option>
+    <option id = "2selectAir3" value=0.88> bF </option>
+    <option id = "2selectAir4" value=0.86> 7op </option>
+    <option id = "2selectAir5" value=0.83> bp (W) </option>
+    <option id = "2selectAir6" value=0.8> bP </option>
+    <option id = "2selectAir7" value=0.8> bT </option>
+    <option id = "2selectAir8" value=0.75> 3 </option>
+    <option id = "2selectAir9" value=0.73> bp (M) </option>
+    </select>
+  <br>
+  <button id="submitVideo1" type="submit" onclick="judgeSubmit()">Submit Final Scores</button>
+  <div id="judgeScoreBack1" class="backButtonDiv">
+    <button id="btnJudgeScoreBack1" type="submit" class="backButton" onclick="hideFunc('judgeScoreMenu','judgeScoreVideo1')">Back</button>
+  </div>
+</div>
+</div>
+
 
 </div>
 </div>

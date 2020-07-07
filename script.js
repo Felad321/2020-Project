@@ -308,7 +308,7 @@ function PSWInsertionSort() {
 }
 
 // Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
-function displayDeduction() {
+function displayDeduction1() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("DedScoreInput").value;
   if(inputValue > 6) {
@@ -341,7 +341,7 @@ function displayDeduction() {
   }
 
   // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
-  function judgeSubmit() {
+  function judgeSubmit1() {
     //Calculate & display the run score 
       //Total the deductions
       var finalDeduct = 0
@@ -361,24 +361,29 @@ function displayDeduction() {
          finalRunScore = 0
         }
     console.log(finalRunScore)
-    document.getElementById("TRScore").innerHTML = "Total Run score is " + finalRunScore;
+    document.getElementById("TRScore1").innerHTML = "Total Run score is " + finalRunScore;
 
      //Calculate & display the air score
-     var finalAirScore = Number(document.getElementById("airOptionBox1").value) + Number(document.getElementById("airOptionBox1").value)
-     document.getElementById("TAScore").innerHTML = "Total Air score is " + finalAirScore;
+     console.log(document.getElementById("A1ScoreInput"))
+     console.log(document.getElementById("airOptionBox1").value)
+     var airScore1 = document.getElementById("A1ScoreInput").value * document.getElementById("airOptionBox1").value
+     console.log(airScore1)
+     var airScore2 = document.getElementById("A2ScoreInput").value * document.getElementById("airOptionBox2").value
+     //var finalAirScore = Number(document.getElementById("airOptionBox1").value) + Number(document.getElementById("airOptionBox1").value)
+     var finalAirScore = airScore1 + airScore2
+     document.getElementById("TAScore1").innerHTML = "Total Air score is " + finalAirScore;
 
      //Calculate & display the total score
-     var totalScore = finalRunScore + finalAirScore
-     document.getElementById("FScore").innerHTML = "Final score is " + totalScore;
+     var totalScore = Number((finalRunScore + finalAirScore).toFixed(2))
+     document.getElementById("FScore1").innerHTML = "Final score is " + totalScore;
 
      //Update the judge's scores
-
      usernameInsertionSort()
      var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
      var judgeIndex = binarySearchJudge(currentUser)
      console.log(judgeIndex)
      console.log(judgeUpdate[judgeIndex])
-     judgeUpdate[judgeIndex].judgeScores.push(totalScore)
+     judgeUpdate[judgeIndex].judgeScores.push([1,totalScore])
      console.log(judgeUpdate[judgeIndex].judgeScores)
      localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
 
