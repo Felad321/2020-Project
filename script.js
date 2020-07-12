@@ -4,6 +4,7 @@ var userArray = []
 var flagDeductsOpened = false
 var totalDeductions = []
 var currentUser
+const expertScores = [32.81,19.6,33.6,30,26.8,26]
 
 // |\|\|\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
 //\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
@@ -307,6 +308,104 @@ function PSWInsertionSort() {
   return;
 }
 
+function createJudgeResults(){
+  var judgeList = JSON.parse(localStorage.getItem("userArray"));
+  for(i=0;i < judgeList.length;i++){
+
+    // Creating a div element
+    var divElement = document.createElement("Div");
+    divElement.id = "divID";
+
+    // Creating paragraph to show judge names
+    var judgeDivElement = document.createElement("Div")
+    judgeDivElement.id = "judgeList"
+    var newPara = document.createElement("p");
+    var judgeNode = document.createTextNode(judgeList[i].username);
+    judgeDivElement.style.textAlign = "center"
+    judgeDivElement.style.fontWeight = "bold"
+    judgeDivElement.style.fontSize = "large"
+    newPara.appendChild(judgeNode);
+    judgeDivElement.appendChild(newPara)
+    divElement.appendChild(judgeDivElement);
+
+    // Styling it
+    divElement.style.textAlign = "left";
+    divElement.style.fontSize = "smaller";
+    divElement.style.paddingTop = "15px";
+    divElement.style.overflow = "auto";
+    divElement.style.border = "2.5px solid #000"
+    divElement.style.height = "200px"
+
+    // Adding a paragraph to it
+    console.log(judgeList[i].judgeScores.length)
+    for(x=0;x<judgeList[i].judgeScores.length;x++){
+     var paragraph = document.createElement("P");
+     console.log(judgeList[i].judgeScores[x][0])
+     var comparedScore = 0
+     // If compared score is -ve, judge score was greater than expert score vice versa
+     // Checks to see which video the score relates to
+     switch(judgeList[i].judgeScores[x][0]){
+        case 1:
+          comparedScore = Number(expertScores[0] - judgeList[i].judgeScores[x][1]).toFixed(2)
+          console.log(comparedScore)
+          break;
+        case 2:
+          comparedScore = Number(expertScores[1] - judgeList[i].judgeScores[x][1]).toFixed(2)
+          console.log(comparedScore)
+          break;
+        case 3:
+          comparedScore = Number(expertScores[2] - judgeList[i].judgeScores[x][1]).toFixed(2)
+          console.log(comparedScore)
+          break;
+        case 4:
+          comparedScore = Number(expertScores[3] - judgeList[i].judgeScores[x][1]).toFixed(2)
+          console.log(comparedScore)
+         break;
+       case 5:
+         comparedScore = Number(expertScores[4] - judgeList[i].judgeScores[x][1]).toFixed(2)
+         console.log(comparedScore)
+         break;
+       case 6:
+         comparedScore = Number(expertScores[5] - judgeList[i].judgeScores[x][1]).toFixed(2)
+         console.log(comparedScore)
+         break;
+       default:
+         alert("Well, it broke, sorry bud.");
+         return;
+    }
+    // Adds the text to display the score difference
+    var text = document.createTextNode("The difference between the judge and expert score was: " + comparedScore);
+    paragraph.appendChild(text);
+    divElement.appendChild(paragraph)
+    if(comparedScore > 5 || comparedScore < -5){
+      judgeList[i].needsAssessment = true
+    } else {
+      judgeList[i].needsAssessment = false
+    }
+    
+    }
+    paragraph = document.createElement("P")
+
+    if(judgeList[i].judgeScores.length > 0){
+      if(judgeList[i].needsAssessment = true){
+       text = document.createTextNode("This judge needs assesment")
+       paragraph.appendChild(text)
+       divElement.appendChild(paragraph)
+     } else {
+        text = document.createTextNode("This judge does not need assesment")
+        paragraph.appendChild(text)
+        divElement.appendChild(paragraph)
+      }
+    } else {
+      text = document.createTextNode("This judge has not scored anything yet")
+      paragraph.appendChild(text)
+      divElement.appendChild(paragraph)
+    }
+    // Appending the div element to body
+    document.getElementById("judgeResults").appendChild(divElement);
+  }
+}
+
 // Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
 function displayDeduction1() {
   var li = document.createElement("li");
@@ -375,40 +474,6 @@ function displayDeduction1() {
 
 
   }
-
-function createDiv(){
-  var judgeList = JSON.parse(localStorage.getItem("userArray"));
-  for(i=0;i < judgeList.length;i++){
-
-    // Creating paragraph to show judge names
-    var newPara = document.createElement("p");
-    var judgeNode = document.createTextNode(judgeList[i].username);
-    newPara.appendChild(judgeNode);
-    document.getElementById("judgeResults").appendChild(newPara);
-
-    // Creating a div element
-    var divElement = document.createElement("Div");
-    divElement.id = "divID";
-
-    // Styling it
-    divElement.style.textAlign = "center";
-    divElement.style.fontWeight = "bold";
-    divElement.style.fontSize = "smaller";
-    divElement.style.paddingTop = "15px";
-    divElement.style.overflow = "auto";
-    divElement.style.borderBottom = "2.5px solid #000"
-
-    // Adding a paragraph to it
-    var paragraph = document.createElement("P");
-    var text = document.createTextNode("Another paragraph, yay! This one will be styled different from the rest since we styled the DIV we specifically created.");
-    paragraph.appendChild(text);
-    divElement.appendChild(paragraph);
-
-
-    // Appending the div element to body
-    document.getElementById("judgeResults").appendChild(divElement);
-  }
-}
 
 // Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
 function displayDeduction2() {
@@ -791,4 +856,9 @@ function displayDeduction6() {
     - JUDGE SCORES WILL BE STORED LIKE [1,24]
       - 1 means first video, 24 will be total score
   - Do they need evaluation?
+
+  COMPARING JUDGE SCORES
+    - Get diference of two scores
+    - If difference is above threshold, needs assesment value to true (do on an individual basis, only true for latest test)
+    - loop around for each score the judge has
 */

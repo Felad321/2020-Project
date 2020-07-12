@@ -3,7 +3,7 @@
     float: right;
     padding: 2em
   }
-  /* oh god fix these colours later */
+  /* imagine fixing colours lmao */
   .loginButton {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -251,3 +251,4 @@ input[type=text], input[type=password] {
   border-radius: 8px;
   height: auto;
 }
+
