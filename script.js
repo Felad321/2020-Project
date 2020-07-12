@@ -1,7 +1,7 @@
 //Global Variables are below
 var userAccount = {}
 var userArray = []
-var flagDeductsOpened = false
+var flagResultsOpened = false
 var totalDeductions = []
 var currentUser
 const expertScores = [32.81,19.6,33.6,30,26.8,26]
@@ -80,7 +80,7 @@ function createAccount(){
     localStorage.setItem("userArray",JSON.stringify(userArray))
   console.log(JSON.parse(localStorage.getItem("userArray")))
   currentuser = document.getElementById("unameInput").value
-  hideFunc('mainMenu','loginPage');
+  hideFunc('judgeTestMenu','loginPage');
   } else {
     window.alert("That username is taken!")
   }
@@ -95,7 +95,7 @@ function loginAccount(){
     if(binarySearchPSW(document.getElementById("pswLoginInput").value) == false){
       currentUser = document.getElementById("unameLoginInput").value
       console.log(currentUser)
-    hideFunc('mainMenu','loginPage')
+    hideFunc('judgeTestMenu','loginPage')
    }
   } else
   var test = [
@@ -309,6 +309,12 @@ function PSWInsertionSort() {
 }
 
 function createJudgeResults(){
+  // Checks to see if the results have already been opened to prevent duplication
+  if(flagResultsOpened == true){
+    return
+  } else
+  flagResultsOpened = true
+ 
   var judgeList = JSON.parse(localStorage.getItem("userArray"));
   for(i=0;i < judgeList.length;i++){
 
@@ -387,7 +393,7 @@ function createJudgeResults(){
     paragraph = document.createElement("P")
 
     if(judgeList[i].judgeScores.length > 0){
-      if(judgeList[i].needsAssessment = true){
+      if(judgeList[i].needsAssessment == true){
        text = document.createTextNode("This judge needs assesment")
        paragraph.appendChild(text)
        divElement.appendChild(paragraph)
