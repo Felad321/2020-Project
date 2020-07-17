@@ -6,16 +6,7 @@ var totalDeductions = []
 var currentUser
 const expertScores = [32.81,19.6,33.6,30,26.8,26]
 
-// |\|\|\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
-//\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
-//\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\\|\|\|\|\
-// NEW PROJECT
-
-
-//TEST CODE FROM W3
-
-
-/* This function hides the login page, and shows the target page
+/* This function hides a page, and showes another using parameters,
  Temporary variables are used to achieve this */
  /* Uses parameters to determine divs to hide and show */
  
@@ -61,7 +52,7 @@ function newElement() {
   }
 }
 
-// This function creates user data that will be stored in local storage.
+// This function creates user data that will be stored in local storage, and checks whether a username is taken.
 function createAccount(){
   usernameInsertionSort()
   currentUser = ""
@@ -86,6 +77,7 @@ function createAccount(){
   }
 }
 
+// Checks to see if the input login details are valid
 function loginAccount(){
   usernameInsertionSort()
   currentUser = ""
@@ -156,6 +148,7 @@ function binarySearchUname(searchName) {
   }
 }
 
+// This function searches for any matching judge names
 function binarySearchJudge(searchName) {
   var retrievedUsers = JSON.parse(localStorage.getItem("userArray"));
   if(retrievedUsers == null){
@@ -196,7 +189,7 @@ function binarySearchJudge(searchName) {
     }
   } while (!foundIt && lower <= upper);
 
-  //This will return whether the uname has been found
+  //This will return the index the name was found at
   if (foundIt) {
     return positionFound
   } else {
@@ -308,6 +301,7 @@ function PSWInsertionSort() {
   return;
 }
 
+// This function creates the HTML elements that represent the judge results page.
 function createJudgeResults(){
   // Checks to see if the results have already been opened to prevent duplication
   if(flagResultsOpened == true){
@@ -342,7 +336,7 @@ function createJudgeResults(){
     divElement.style.border = "2.5px solid #000"
     divElement.style.height = "200px"
 
-    // Adding a paragraph to it
+    // Adding the results
     console.log(judgeList[i].judgeScores.length)
     for(x=0;x<judgeList[i].judgeScores.length;x++){
      var paragraph = document.createElement("P");
@@ -429,7 +423,6 @@ function displayDeduction1() {
   } else {
     document.getElementById("deductionUL1").appendChild(li);
   }
-  //document.getElementById("deductionOptionBox").value = "";
   }
 
   // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
@@ -498,7 +491,6 @@ function displayDeduction2() {
   } else {
     document.getElementById("deductionUL2").appendChild(li);
   }
-  //document.getElementById("deductionOptionBox").value = "";
   }
 
   // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
@@ -569,7 +561,6 @@ function displayDeduction3() {
   } else {
     document.getElementById("deductionUL3").appendChild(li);
   }
-  //document.getElementById("deductionOptionBox").value = "";
   }
 
   // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
@@ -638,7 +629,6 @@ function displayDeduction4() {
   } else {
     document.getElementById("deductionUL4").appendChild(li);
   }
-  //document.getElementById("deductionOptionBox").value = "";
   }
 
   // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
@@ -707,7 +697,6 @@ function displayDeduction5() {
   } else {
     document.getElementById("deductionUL1").appendChild(li);
   }
-  //document.getElementById("deductionOptionBox").value = "";
   }
 
   // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
@@ -776,7 +765,6 @@ function displayDeduction6() {
   } else {
     document.getElementById("deductionUL6").appendChild(li);
   }
-  //document.getElementById("deductionOptionBox").value = "";
   }
 
   // This function calculates the final total scores, and saves them to local storage with the user attatched. String manipulation is also present here.
@@ -828,43 +816,8 @@ function displayDeduction6() {
 
   }
 
-
-
-/* This function creates the list of deductions within the deduction box, also checking whether the box
-   has already been opened to prevent duplicated data [ACTUALLY ONLY NEEDED FOR EDITABLE DEDUCTIONS]
-   function setDeductions() {
-    selectbox = document.getElementById("optionBoxes")
-    var deductionsArray = ["test1","test2","test3"] 
-    //var retrievedArraySelect = localStorage.getItem("userArray")
-    //var retrievedArraySelectProper = JSON.parse(retrievedArraySelect)
-    
-    if(flagDeductsOpened === false){
-     for(i=0;i<deductionsArray.length;i++){
-    
-        //select.option.remove[i]
-        var option = document.createElement("option");
-        option.value = i
-        option.text = deductionsArray[i]
-        selectbox.add(option)
-     } } else {
-     }
-    flagSelectUserOpened = true
-  }
-*/
-
 /*NOTES:
 - Time how long it takes for coaches to score?
 - HAVE A MODAL POP UP TO DISPLAY ANY DEDUCTION INFO FROM A BUTTON?
-- Make the airs a listr of tricks 
-- If have time, seperate score comparisons into individual components?
-- LIST OF THINGS TO DISPLAY
-  - Judge Scores vs Expert Scores
-    - JUDGE SCORES WILL BE STORED LIKE [1,24]
-      - 1 means first video, 24 will be total score
-  - Do they need evaluation?
 
-  COMPARING JUDGE SCORES
-    - Get diference of two scores
-    - If difference is above threshold, needs assesment value to true (do on an individual basis, only true for latest test)
-    - loop around for each score the judge has
 */
