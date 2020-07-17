@@ -13,8 +13,6 @@ const expertScores = [32.81,19.6,33.6,30,26.8,26]
  function hideFunc(nextPage, prevPage) {
   var next = document.getElementById(nextPage);
   var prev = document.getElementById(prevPage);
-  console.log(next)
-  console.log(prev)
 
   if (prev.style.display === "none") {
     prev.style.display = "block";
@@ -69,7 +67,6 @@ function createAccount(){
       }
     userArray.push(userAccount)
     localStorage.setItem("userArray",JSON.stringify(userArray))
-  console.log(JSON.parse(localStorage.getItem("userArray")))
   currentuser = document.getElementById("unameInput").value
   hideFunc('judgeTestMenu','loginPage');
   } else {
@@ -86,7 +83,6 @@ function loginAccount(){
     PSWInsertionSort();
     if(binarySearchPSW(document.getElementById("pswLoginInput").value) == false){
       currentUser = document.getElementById("unameLoginInput").value
-      console.log(currentUser)
     hideFunc('judgeTestMenu','loginPage')
    }
   } else
@@ -95,7 +91,6 @@ function loginAccount(){
       arraytest: ["yeah", "yeah2"]
     } 
   ] 
-console.log(test[0].arraytest[0])
 alert("The login is invalid.")
 }
 
@@ -108,7 +103,6 @@ function binarySearchUname(searchName) {
   var usernameArray = []
   for(i=0;i < retrievedUsers.length; i++){
     usernameArray.push(retrievedUsers[i].username)
-    console.log(usernameArray)
   }
 
   //Will jump out if the array is already empty
@@ -157,7 +151,6 @@ function binarySearchJudge(searchName) {
   var usernameArray = []
   for(i=0;i < retrievedUsers.length; i++){
     usernameArray.push(retrievedUsers[i].username)
-    console.log(usernameArray)
   }
 
   //Will jump out if the array is already empty
@@ -203,7 +196,6 @@ function binarySearchPSW(searchPSW,) {
   var passwordArray = []
   for(i=0;i < retrievedUsers.length; i++){
     passwordArray.push(retrievedUsers[i].password)
-    console.log(passwordArray)
   }
 
 
@@ -256,7 +248,6 @@ function usernameInsertionSort() {
   first = 0;
   last = tempArray.length - 1;
   positionOfNext = last - 1;
-      console.log(JSON.parse(localStorage.getItem("userArray")))
   while (positionOfNext >= first) {
     next = tempArray[positionOfNext];
     current = positionOfNext;
@@ -271,7 +262,6 @@ function usernameInsertionSort() {
     positionOfNext -= 1;
   }
   localStorage.setItem("userArray",JSON.stringify(tempArray))
-      console.log(JSON.parse(localStorage.getItem("userArray")))
   return;
 }
 
@@ -282,7 +272,6 @@ function PSWInsertionSort() {
   first = 0;
   last = tempArray.length - 1;
   positionOfNext = last - 1;
-      console.log(JSON.parse(localStorage.getItem("userArray")))
   while (positionOfNext >= first) {
     next = tempArray[positionOfNext];
     current = positionOfNext;
@@ -297,7 +286,6 @@ function PSWInsertionSort() {
     positionOfNext -= 1;
   }
   localStorage.setItem("userArray",JSON.stringify(tempArray))
-      console.log(JSON.parse(localStorage.getItem("userArray")))
   return;
 }
 
@@ -337,37 +325,29 @@ function createJudgeResults(){
     divElement.style.height = "200px"
 
     // Adding the results
-    console.log(judgeList[i].judgeScores.length)
     for(x=0;x<judgeList[i].judgeScores.length;x++){
      var paragraph = document.createElement("P");
-     console.log(judgeList[i].judgeScores[x][0])
      var comparedScore = 0
      // If compared score is -ve, judge score was greater than expert score vice versa
      // Checks to see which video the score relates to
      switch(judgeList[i].judgeScores[x][0]){
         case 1:
           comparedScore = Number(expertScores[0] - judgeList[i].judgeScores[x][1]).toFixed(2)
-          console.log(comparedScore)
           break;
         case 2:
           comparedScore = Number(expertScores[1] - judgeList[i].judgeScores[x][1]).toFixed(2)
-          console.log(comparedScore)
           break;
         case 3:
           comparedScore = Number(expertScores[2] - judgeList[i].judgeScores[x][1]).toFixed(2)
-          console.log(comparedScore)
           break;
         case 4:
           comparedScore = Number(expertScores[3] - judgeList[i].judgeScores[x][1]).toFixed(2)
-          console.log(comparedScore)
          break;
        case 5:
          comparedScore = Number(expertScores[4] - judgeList[i].judgeScores[x][1]).toFixed(2)
-         console.log(comparedScore)
          break;
        case 6:
          comparedScore = Number(expertScores[5] - judgeList[i].judgeScores[x][1]).toFixed(2)
-         console.log(comparedScore)
          break;
        default:
          alert("Well, it broke, sorry bud.");
@@ -415,7 +395,6 @@ function displayDeduction1() {
     return
   }
   totalDeductions.push(inputValue);
-  console.log(totalDeductions);
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -432,7 +411,6 @@ function displayDeduction1() {
       var finalDeduct = 0
       for(i=0;i<totalDeductions.length;i++){
         finalDeduct = finalDeduct + Number(totalDeductions[i])
-        console.log(finalDeduct)
       }
       //Calculate the final run score
       var runScore = document.getElementById("RBScoreInput1").value
@@ -445,14 +423,10 @@ function displayDeduction1() {
         if(finalRunScore < 0){
          finalRunScore = 0
         }
-    console.log(finalRunScore)
     document.getElementById("TRScore1").innerHTML = "Total Run score is " + finalRunScore;
 
      //Calculate & display the air score
-     console.log(document.getElementById("A1ScoreInput1"))
-     console.log(document.getElementById("1airOptionBox1").value)
      var airScore1 = document.getElementById("A1ScoreInput1").value * document.getElementById("1airOptionBox1").value
-     console.log(airScore1)
      var airScore2 = document.getElementById("A2ScoreInput1").value * document.getElementById("1airOptionBox2").value
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore1").innerHTML = "Total Air score is " + finalAirScore;
@@ -465,10 +439,7 @@ function displayDeduction1() {
      usernameInsertionSort()
      var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
      var judgeIndex = binarySearchJudge(currentUser)
-     console.log(judgeIndex)
-     console.log(judgeUpdate[judgeIndex])
      judgeUpdate[judgeIndex].judgeScores.push([1,totalScore])
-     console.log(judgeUpdate[judgeIndex].judgeScores)
      localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
 
 
@@ -483,7 +454,6 @@ function displayDeduction2() {
     return
   }
   totalDeductions.push(inputValue);
-  console.log(totalDeductions);
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -500,7 +470,6 @@ function displayDeduction2() {
       var finalDeduct = 0
       for(i=0;i<totalDeductions.length;i++){
         finalDeduct = finalDeduct + Number(totalDeductions[i])
-        console.log(finalDeduct)
       }
       //Calculate the final run score
       var runScore = document.getElementById("RBScoreInput2").value
@@ -513,14 +482,10 @@ function displayDeduction2() {
         if(finalRunScore < 0){
          finalRunScore = 0
         }
-    console.log(finalRunScore)
     document.getElementById("TRScore2").innerHTML = "Total Run score is " + finalRunScore;
 
      //Calculate & display the air score
-     console.log(document.getElementById("A1ScoreInput2"))
-     console.log(document.getElementById("2airOptionBox1").value)
      var airScore1 = document.getElementById("A1ScoreInput2").value * document.getElementById("2airOptionBox1").value
-     console.log(airScore1)
      var airScore2 = document.getElementById("A2ScoreInput2").value * document.getElementById("2airOptionBox2").value
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore2").innerHTML = "Total Air score is " + finalAirScore;
@@ -533,10 +498,7 @@ function displayDeduction2() {
      usernameInsertionSort()
      var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
      var judgeIndex = binarySearchJudge(currentUser)
-     console.log(judgeIndex)
-     console.log(judgeUpdate[judgeIndex])
      judgeUpdate[judgeIndex].judgeScores.push([2,totalScore])
-     console.log(judgeUpdate[judgeIndex].judgeScores)
      localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
 
 
@@ -553,7 +515,6 @@ function displayDeduction3() {
     return
   }
   totalDeductions.push(inputValue);
-  console.log(totalDeductions);
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -570,7 +531,6 @@ function displayDeduction3() {
       var finalDeduct = 0
       for(i=0;i<totalDeductions.length;i++){
         finalDeduct = finalDeduct + Number(totalDeductions[i])
-        console.log(finalDeduct)
       }
       //Calculate the final run score
       var runScore = document.getElementById("RBScoreInput3").value
@@ -583,14 +543,10 @@ function displayDeduction3() {
         if(finalRunScore < 0){
          finalRunScore = 0
         }
-    console.log(finalRunScore)
     document.getElementById("TRScore3").innerHTML = "Total Run score is " + finalRunScore;
 
      //Calculate & display the air score
-     console.log(document.getElementById("A1ScoreInput3"))
-     console.log(document.getElementById("3airOptionBox1").value)
      var airScore1 = document.getElementById("A1ScoreInput3").value * document.getElementById("3airOptionBox1").value
-     console.log(airScore1)
      var airScore2 = document.getElementById("A2ScoreInput3").value * document.getElementById("3airOptionBox2").value
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore3").innerHTML = "Total Air score is " + finalAirScore;
@@ -603,10 +559,7 @@ function displayDeduction3() {
      usernameInsertionSort()
      var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
      var judgeIndex = binarySearchJudge(currentUser)
-     console.log(judgeIndex)
-     console.log(judgeUpdate[judgeIndex])
      judgeUpdate[judgeIndex].judgeScores.push([3,totalScore])
-     console.log(judgeUpdate[judgeIndex].judgeScores)
      localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
 
 
@@ -621,7 +574,6 @@ function displayDeduction4() {
     return
   }
   totalDeductions.push(inputValue);
-  console.log(totalDeductions);
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -638,7 +590,6 @@ function displayDeduction4() {
       var finalDeduct = 0
       for(i=0;i<totalDeductions.length;i++){
         finalDeduct = finalDeduct + Number(totalDeductions[i])
-        console.log(finalDeduct)
       }
       //Calculate the final run score
       var runScore = document.getElementById("RBScoreInput4").value
@@ -651,14 +602,10 @@ function displayDeduction4() {
         if(finalRunScore < 0){
          finalRunScore = 0
         }
-    console.log(finalRunScore)
     document.getElementById("TRScore4").innerHTML = "Total Run score is " + finalRunScore;
 
      //Calculate & display the air score
-     console.log(document.getElementById("A1ScoreInput4"))
-     console.log(document.getElementById("4airOptionBox1").value)
      var airScore1 = document.getElementById("A1ScoreInput4").value * document.getElementById("4airOptionBox1").value
-     console.log(airScore1)
      var airScore2 = document.getElementById("A2ScoreInput4").value * document.getElementById("4airOptionBox2").value
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore4").innerHTML = "Total Air score is " + finalAirScore;
@@ -671,10 +618,7 @@ function displayDeduction4() {
      usernameInsertionSort()
      var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
      var judgeIndex = binarySearchJudge(currentUser)
-     console.log(judgeIndex)
-     console.log(judgeUpdate[judgeIndex])
      judgeUpdate[judgeIndex].judgeScores.push([4,totalScore])
-     console.log(judgeUpdate[judgeIndex].judgeScores)
      localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
 
 
@@ -689,7 +633,6 @@ function displayDeduction5() {
     return
   }
   totalDeductions.push(inputValue);
-  console.log(totalDeductions);
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -706,7 +649,6 @@ function displayDeduction5() {
       var finalDeduct = 0
       for(i=0;i<totalDeductions.length;i++){
         finalDeduct = finalDeduct + Number(totalDeductions[i])
-        console.log(finalDeduct)
       }
       //Calculate the final run score
       var runScore = document.getElementById("RBScoreInput5").value
@@ -719,14 +661,10 @@ function displayDeduction5() {
         if(finalRunScore < 0){
          finalRunScore = 0
         }
-    console.log(finalRunScore)
     document.getElementById("TRScore5").innerHTML = "Total Run score is " + finalRunScore;
 
      //Calculate & display the air score
-     console.log(document.getElementById("A1ScoreInput5"))
-     console.log(document.getElementById("5airOptionBox1").value)
      var airScore1 = document.getElementById("A1ScoreInput5").value * document.getElementById("5airOptionBox1").value
-     console.log(airScore1)
      var airScore2 = document.getElementById("A2ScoreInput5").value * document.getElementById("5airOptionBox2").value
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore5").innerHTML = "Total Air score is " + finalAirScore;
@@ -739,10 +677,7 @@ function displayDeduction5() {
      usernameInsertionSort()
      var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
      var judgeIndex = binarySearchJudge(currentUser)
-     console.log(judgeIndex)
-     console.log(judgeUpdate[judgeIndex])
      judgeUpdate[judgeIndex].judgeScores.push([5,totalScore])
-     console.log(judgeUpdate[judgeIndex].judgeScores)
      localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
 
 
@@ -757,7 +692,6 @@ function displayDeduction6() {
     return
   }
   totalDeductions.push(inputValue);
-  console.log(totalDeductions);
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -774,7 +708,6 @@ function displayDeduction6() {
       var finalDeduct = 0
       for(i=0;i<totalDeductions.length;i++){
         finalDeduct = finalDeduct + Number(totalDeductions[i])
-        console.log(finalDeduct)
       }
       //Calculate the final run score
       var runScore = document.getElementById("RBScoreInput6").value
@@ -787,14 +720,10 @@ function displayDeduction6() {
         if(finalRunScore < 0){
          finalRunScore = 0
         }
-    console.log(finalRunScore)
     document.getElementById("TRScore6").innerHTML = "Total Run score is " + finalRunScore;
 
      //Calculate & display the air score
-     console.log(document.getElementById("A1ScoreInput6"))
-     console.log(document.getElementById("6airOptionBox1").value)
      var airScore1 = document.getElementById("A1ScoreInput6").value * document.getElementById("6airOptionBox1").value
-     console.log(airScore1)
      var airScore2 = document.getElementById("A2ScoreInput6").value * document.getElementById("6airOptionBox2").value
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore6").innerHTML = "Total Air score is " + finalAirScore;
@@ -807,10 +736,7 @@ function displayDeduction6() {
      usernameInsertionSort()
      var judgeUpdate = JSON.parse(localStorage.getItem("userArray"))
      var judgeIndex = binarySearchJudge(currentUser)
-     console.log(judgeIndex)
-     console.log(judgeUpdate[judgeIndex])
      judgeUpdate[judgeIndex].judgeScores.push([6,totalScore])
-     console.log(judgeUpdate[judgeIndex].judgeScores)
      localStorage.setItem("userArray",JSON.stringify(judgeUpdate))
 
 
