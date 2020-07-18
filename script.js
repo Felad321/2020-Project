@@ -84,14 +84,12 @@ function loginAccount(){
     if(binarySearchPSW(document.getElementById("pswLoginInput").value) == false){
       currentUser = document.getElementById("unameLoginInput").value
     hideFunc('judgeTestMenu','loginPage')
-   }
-  } else
-  var test = [
-    helpUser = {
-      arraytest: ["yeah", "yeah2"]
-    } 
-  ] 
-alert("The login is invalid.")
+   } else {
+    alert("The password is invalid.")
+  }
+  } else {
+    alert("The username is invalid.")
+  }
 }
 
 // This functions will search for any matching usernames
