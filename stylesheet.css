@@ -82,17 +82,7 @@
   
 
   /* Content from W3Schools */
-/*
- Full-width input fields 
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  */
+
 
   .modalInputs {
     width: 100%;
@@ -252,4 +242,33 @@ input[type=text], input[type=password] {
   width: auto;
   border-radius: 8px;
   height: auto;
+}
+
+.helpButton {
+  font-size: 24px;
+  border-radius: 8px;
+  width: 200%;
+  padding-left: 1em;
+  bottom: 0px;
+}
+
+.trickViewButton {
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  float: right;
+}
+
+.trickModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
 }

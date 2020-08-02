@@ -4,7 +4,7 @@ var userArray = []
 var flagResultsOpened = false
 var totalDeductions = []
 var currentUser
-const expertScores = [32.81,19.6,33.6,30,26.8,26]
+const expertScores = [32.11,17.92,31.57,29.27,25.31,23.28]
 
 /* This function hides a page, and showes another using parameters,
  Temporary variables are used to achieve this */
@@ -13,7 +13,40 @@ const expertScores = [32.81,19.6,33.6,30,26.8,26]
  function hideFunc(nextPage, prevPage) {
   var next = document.getElementById(nextPage);
   var prev = document.getElementById(prevPage);
-
+  totalDeductions = []
+  switch (nextPage) {
+    case 'judgeScoreVideo1':
+      while( deductionUL1.firstChild ){
+        deductionUL1.removeChild( deductionUL1.firstChild );
+      };
+      break;
+    case 'judgeScoreVideo2':
+      while( deductionUL2.firstChild ){
+        deductionUL2.removeChild( deductionUL2.firstChild );
+      };
+      break;
+    case 'judgeScoreVideo3':
+      while( deductionUL3.firstChild ){
+        deductionUL3.removeChild( deductionUL3.firstChild );
+      };
+      break;
+    case 'judgeScoreVideo4':
+      while( deductionUL4.firstChild ){
+        deductionUL4.removeChild( deductionUL4.firstChild );
+      };
+      break;
+    case 'judgeScoreVideo5':
+      while( deductionUL5.firstChild ){
+        deductionUL5.removeChild( deductionUL5.firstChild );
+      };
+      break;
+    case 'judgeScoreVideo6':
+      while( deductionUL6.firstChild ){
+        deductionUL6.removeChild( deductionUL6.firstChild );
+      };
+      break;
+      
+  }
   if (prev.style.display === "none") {
     prev.style.display = "block";
   } else {
@@ -67,8 +100,9 @@ function createAccount(){
       }
     userArray.push(userAccount)
     localStorage.setItem("userArray",JSON.stringify(userArray))
-  currentuser = document.getElementById("unameInput").value
+  currentUser = document.getElementById("unameInput").value
   hideFunc('judgeTestMenu','loginPage');
+  document.getElementById('createForm').style.display='none'
   } else {
     window.alert("That username is taken!")
   }
@@ -84,6 +118,7 @@ function loginAccount(){
     if(binarySearchPSW(document.getElementById("pswLoginInput").value) == false){
       currentUser = document.getElementById("unameLoginInput").value
     hideFunc('judgeTestMenu','loginPage')
+    document.getElementById('loginForm').style.display='none'
    } else {
     alert("The password is invalid.")
   }
@@ -388,7 +423,7 @@ function createJudgeResults(){
 function displayDeduction1() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("DedScoreInput1").value;
-  if(inputValue > 6) {
+  if(inputValue > 6 || inputValue < 0) {
     alert("Please enter a valid deduction.")
     return
   }
@@ -425,7 +460,15 @@ function displayDeduction1() {
 
      //Calculate & display the air score
      var airScore1 = document.getElementById("A1ScoreInput1").value * document.getElementById("1airOptionBox1").value
+     if(airScore1 < 0 || airScore1 > 100){
+      window.alert("Your 1st air score is invalid.")
+      return
+    }
      var airScore2 = document.getElementById("A2ScoreInput1").value * document.getElementById("1airOptionBox2").value
+     if(airScore2 < 0 || airScore2 > 100){
+      window.alert("Your 2nd air score is invalid.")
+      return
+    }
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore1").innerHTML = "Total Air score is " + finalAirScore;
 
@@ -447,7 +490,7 @@ function displayDeduction1() {
 function displayDeduction2() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("DedScoreInput2").value;
-  if(inputValue > 6) {
+  if(inputValue > 6 || inputValue < 0) {
     alert("Please enter a valid deduction.")
     return
   }
@@ -484,7 +527,15 @@ function displayDeduction2() {
 
      //Calculate & display the air score
      var airScore1 = document.getElementById("A1ScoreInput2").value * document.getElementById("2airOptionBox1").value
+     if(airScore1 < 0 || airScore1 > 100){
+      window.alert("Your 1st air score is invalid.")
+      return
+    }
      var airScore2 = document.getElementById("A2ScoreInput2").value * document.getElementById("2airOptionBox2").value
+     if(airScore2 < 0 || airScore2 > 100){
+      window.alert("Your 2nd air score is invalid.")
+      return
+    }
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore2").innerHTML = "Total Air score is " + finalAirScore;
 
@@ -508,7 +559,7 @@ function displayDeduction2() {
 function displayDeduction3() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("DedScoreInput3").value;
-  if(inputValue > 6) {
+  if(inputValue > 6 || inputValue < 0) {
     alert("Please enter a valid deduction.")
     return
   }
@@ -545,7 +596,15 @@ function displayDeduction3() {
 
      //Calculate & display the air score
      var airScore1 = document.getElementById("A1ScoreInput3").value * document.getElementById("3airOptionBox1").value
+     if(airScore1 < 0 || airScore1 > 100){
+      window.alert("Your 1st air score is invalid.")
+      return
+    }
      var airScore2 = document.getElementById("A2ScoreInput3").value * document.getElementById("3airOptionBox2").value
+     if(airScore2 < 0 || airScore2 > 100){
+      window.alert("Your 2nd air score is invalid.")
+      return
+    }
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore3").innerHTML = "Total Air score is " + finalAirScore;
 
@@ -567,7 +626,7 @@ function displayDeduction3() {
 function displayDeduction4() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("DedScoreInput4").value;
-  if(inputValue > 6) {
+  if(inputValue > 6 || inputValue < 0) {
     alert("Please enter a valid deduction.")
     return
   }
@@ -586,7 +645,7 @@ function displayDeduction4() {
     //Calculate & display the run score 
       //Total the deductions
       var finalDeduct = 0
-      for(i=0;i<totalDeductions.length;i++){
+      for(i=1;i<totalDeductions.length;i++){
         finalDeduct = finalDeduct + Number(totalDeductions[i])
       }
       //Calculate the final run score
@@ -604,7 +663,15 @@ function displayDeduction4() {
 
      //Calculate & display the air score
      var airScore1 = document.getElementById("A1ScoreInput4").value * document.getElementById("4airOptionBox1").value
+     if(airScore1 < 0 || airScore1 > 100){
+      window.alert("Your 1st air score is invalid.")
+      return
+    }
      var airScore2 = document.getElementById("A2ScoreInput4").value * document.getElementById("4airOptionBox2").value
+     if(airScore2 < 0 || airScore2 > 100){
+      window.alert("Your 2nd air score is invalid.")
+      return
+    }
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore4").innerHTML = "Total Air score is " + finalAirScore;
 
@@ -625,8 +692,8 @@ function displayDeduction4() {
 // Create a new list item when clicking on the "Add" button, and adds to the total deduction value array
 function displayDeduction5() {
   var li = document.createElement("li");
-  var inputValue = document.getElementById("DedScoreInput1").value;
-  if(inputValue > 6) {
+  var inputValue = document.getElementById("DedScoreInput5").value;
+  if(inputValue > 6 || inputValue < 0) {
     alert("Please enter a valid deduction.")
     return
   }
@@ -636,7 +703,7 @@ function displayDeduction5() {
   if (inputValue === '') {
     alert("Please enter a valid deduction.");
   } else {
-    document.getElementById("deductionUL1").appendChild(li);
+    document.getElementById("deductionUL5").appendChild(li);
   }
   }
 
@@ -663,7 +730,15 @@ function displayDeduction5() {
 
      //Calculate & display the air score
      var airScore1 = document.getElementById("A1ScoreInput5").value * document.getElementById("5airOptionBox1").value
+     if(airScore1 < 0 || airScore1 > 100){
+      window.alert("Your 1st air score is invalid.")
+      return
+    }
      var airScore2 = document.getElementById("A2ScoreInput5").value * document.getElementById("5airOptionBox2").value
+     if(airScore2 < 0 || airScore2 > 100){
+      window.alert("Your 2nd air score is invalid.")
+      return
+    }
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore5").innerHTML = "Total Air score is " + finalAirScore;
 
@@ -685,7 +760,7 @@ function displayDeduction5() {
 function displayDeduction6() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("DedScoreInput6").value;
-  if(inputValue > 6) {
+  if(inputValue > 6 || inputValue < 0) {
     alert("Please enter a valid deduction.")
     return
   }
@@ -722,7 +797,15 @@ function displayDeduction6() {
 
      //Calculate & display the air score
      var airScore1 = document.getElementById("A1ScoreInput6").value * document.getElementById("6airOptionBox1").value
+      if(airScore1 < 0 || airScore1 > 100){
+        window.alert("Your 1st air score is invalid.")
+        return
+      }
      var airScore2 = document.getElementById("A2ScoreInput6").value * document.getElementById("6airOptionBox2").value
+     if(airScore2 < 0 || airScore2 > 100){
+      window.alert("Your 2nd air score is invalid.")
+      return
+    }
      var finalAirScore = airScore1 + airScore2
      document.getElementById("TAScore6").innerHTML = "Total Air score is " + finalAirScore;
 
@@ -743,5 +826,6 @@ function displayDeduction6() {
 /*NOTES:
 - Time how long it takes for coaches to score?
 - HAVE A MODAL POP UP TO DISPLAY ANY DEDUCTION INFO FROM A BUTTON?
-
+- Have a modal to explain what each trick is?
+// NEEED TO HAVE TRICK MODAL MAK BACKGROUND DARK
 */
