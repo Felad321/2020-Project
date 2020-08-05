@@ -9,11 +9,11 @@ const expertScores = [32.11,17.92,31.57,29.27,25.31,23.28]
 /* This function hides a page, and showes another using parameters,
  Temporary variables are used to achieve this */
  /* Uses parameters to determine divs to hide and show */
- 
  function hideFunc(nextPage, prevPage) {
   var next = document.getElementById(nextPage);
   var prev = document.getElementById(prevPage);
   totalDeductions = []
+  // This switch statements handles the removing of existing deduction HTML elements
   switch (nextPage) {
     case 'judgeScoreVideo1':
       while( deductionUL1.firstChild ){
@@ -56,33 +56,6 @@ const expertScores = [32.11,17.92,31.57,29.27,25.31,23.28]
 
 }
 
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("Please enter a valid athlete name.");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
-
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
-
 // This function creates user data that will be stored in local storage, and checks whether a username is taken.
 function createAccount(){
   usernameInsertionSort()
@@ -93,14 +66,17 @@ function createAccount(){
     judgeScores: [],
     needsAssessment: false
   }
+  // Checks to ensure username doesn't already exist (True means no match)
   if(binarySearchUname(document.getElementById("unameInput").value) == true){
   var userArray = JSON.parse(localStorage.getItem("userArray"))
       if(userArray == null){
         userArray = []
       }
+      // Stores new user in localstorage
     userArray.push(userAccount)
     localStorage.setItem("userArray",JSON.stringify(userArray))
   currentUser = document.getElementById("unameInput").value
+  // Switches page to main menu
   hideFunc('judgeTestMenu','loginPage');
   document.getElementById('createForm').style.display='none'
   } else {
@@ -117,6 +93,7 @@ function loginAccount(){
     PSWInsertionSort();
     if(binarySearchPSW(document.getElementById("pswLoginInput").value) == false){
       currentUser = document.getElementById("unameLoginInput").value
+      // Hides login menu and goes to main menu
     hideFunc('judgeTestMenu','loginPage')
     document.getElementById('loginForm').style.display='none'
    } else {
@@ -130,6 +107,7 @@ function loginAccount(){
 // This functions will search for any matching usernames
 function binarySearchUname(searchName) {
   var retrievedUsers = JSON.parse(localStorage.getItem("userArray"));
+  // Checks to ensure a user array exists. If not, return no matches
   if(retrievedUsers == null){
     return true
   } else
@@ -146,7 +124,7 @@ function binarySearchUname(searchName) {
     lower = 0;
     upper = usernameArray.length - 1;
     foundIt = false;
-    requiredName = searchName; // CHANGE
+    requiredName = searchName;
 
   //This will iterate through the array until it has found the value it is looking for
   do {
@@ -178,6 +156,7 @@ function binarySearchUname(searchName) {
 // This function searches for any matching judge names
 function binarySearchJudge(searchName) {
   var retrievedUsers = JSON.parse(localStorage.getItem("userArray"));
+    // Checks to ensure a user array exists. If not, return no matches
   if(retrievedUsers == null){
     return true
   } else
@@ -194,7 +173,7 @@ function binarySearchJudge(searchName) {
     lower = 0;
     upper = usernameArray.length - 1;
     foundIt = false;
-    requiredName = searchName; // CHANGE
+    requiredName = searchName; 
 
   //This will iterate through the array until it has found the value it is looking for
   do {
@@ -224,8 +203,9 @@ function binarySearchJudge(searchName) {
 }
 
 // This functions will search for any matching passwords
-function binarySearchPSW(searchPSW,) {
+function binarySearchPSW(searchPSW) {
   var retrievedUsers = JSON.parse(localStorage.getItem("userArray"));
+    // Checks to ensure a user array exists. If not, return no matches
   var passwordArray = []
   for(i=0;i < retrievedUsers.length; i++){
     passwordArray.push(retrievedUsers[i].password)
@@ -241,7 +221,7 @@ if(passwordArray.length == 0) {
   lower = 0;
   upper = passwordArray.length - 1;
   foundIt = false;
-  requiredName = searchPSW; // CHANGE
+  requiredName = searchPSW; 
 
   //This will iterate through the array until it has found the value it is looking for
   do {
@@ -390,6 +370,7 @@ function createJudgeResults(){
     var text = document.createTextNode("The difference between the judge and expert score was: " + comparedScore);
     paragraph.appendChild(text);
     divElement.appendChild(paragraph)
+    // Checks to see if the score difference falls within the acceptable bracket. If not, they need assessment
     if(comparedScore > 5 || comparedScore < -5){
       judgeList[i].needsAssessment = true
     } else {
@@ -822,10 +803,3 @@ function displayDeduction6() {
 
 
   }
-
-/*NOTES:
-- Time how long it takes for coaches to score?
-- HAVE A MODAL POP UP TO DISPLAY ANY DEDUCTION INFO FROM A BUTTON?
-- Have a modal to explain what each trick is?
-// NEEED TO HAVE TRICK MODAL MAK BACKGROUND DARK
-*/
