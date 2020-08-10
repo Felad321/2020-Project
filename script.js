@@ -59,6 +59,7 @@ const expertScores = [32.11,17.92,31.57,29.27,25.31,23.28]
 // This function creates user data that will be stored in local storage, and checks whether a username is taken.
 function createAccount(){
   usernameInsertionSort()
+  // User account object:
   currentUser = ""
   userAccount = {
     username: document.getElementById("unameInput").value,
